@@ -8,17 +8,27 @@ import {
   deleteIncome
 } from '../controllers/incomes.controller';
 
+export class IncomeRoutes {
 
-const router:Router = Router();
+  public incomeRouter: Router;
 
-router.get('/incomes/getAllIncomes', getAllIncomes);
+  constructor() {
+    this.incomeRouter = Router();
+    this.routes();
+  }
 
-router.get('/incomes/getMonthlyIncome', getMonthlyIncome);
+  private routes(): Router {
+    this.incomeRouter
+      .get('/incomes/getAllIncomes', getAllIncomes)
+      .get('/incomes/getMonthlyIncome/:month/:year', getMonthlyIncome)
+      .post('/incomes/createIncome', createIncome)
+      .put('/incomes/updateIncome', updateIncome)
+      .delete('/incomes/deleteIncome', deleteIncome);
 
-router.post('/incomes/createIncome', createIncome);
+    return this.incomeRouter;
+  }
 
-router.put('/incomes/updateIncome', updateIncome);
-
-router.delete('/incomes/deleteIncome', deleteIncome);
-
-export const incomeRoutes: Router = router;
+  public getIncomeRoutes():Router {
+    return this.incomeRouter;
+  }
+}

@@ -3,22 +3,26 @@ import * as express from "express";
 import * as helmet from "helmet";
 import * as bodyParser from "body-parser";
 
-import { incomeRoutes } from './routes/incomes';
+import { IncomeRoutes } from './routes/incomes';
 
-const app = express();
-const port = process.env.PORT || 3000;
+class App {
 
-app.get("/", (req, res) => {
-  res.send("HI!");
-})
+  public app:express.Application;
+  public incomeRoutes: IncomeRoutes = new IncomeRoutes();
 
-app
-  .use(helmet())
-  .use(bodyParser.urlencoded({ extended: true }))
-  .use(bodyParser.json())
-  .use('/', incomeRoutes)
-  .listen(port, () => {
-    console.log(`Server up and running on port ${port}`);
-  });
+  constructor() {
+    this.app = express();
+    this.config();
+  }
 
-export default app;
+  config() {
+    console.log('entered config function');
+    this.app
+      .use(helmet())
+      .use(bodyParser.urlencoded({ extended: true }))
+      .use(bodyParser.json())
+      .use(this.incomeRoutes.getIncomeRoutes());
+  }
+}
+
+export default new App().app;
