@@ -1,16 +1,25 @@
 
-import { Income, createIncomeInput, createIncomeRequest, createIncomeOutput } from '../models/incomes.db';
+import { createIncomeInput, createIncomeRequest, createIncomeOutput } from '../data-source/incomes.ds';
+import { Income } from '../models/income.model';
 
 export class IncomeService {
 
-  async createIncome(createIncomeData: createIncomeRequest): Promise<createIncomeOutput> {
+  constructor() {}
+
+  public async createIncome(createIncomeData: createIncomeRequest): Promise<createIncomeOutput> {
     const incomeCreationInput: createIncomeInput = {
       id: '1',
       ...createIncomeData,
     }
-    const incomeCreationOutput: createIncomeOutput = await Income.create(incomeCreationInput);
+    //const incomeCreationOutput: createIncomeOutput = await Income.create(incomeCreationInput);
     
-    return incomeCreationOutput;
+    //return incomeCreationOutput;
+    return {
+      id: '1',
+      valueSpent: 100,
+      descriptionText: 'sidhfd',
+      dataType: 'ahsdiauhd',
+    };
   }
 
 }
