@@ -10,6 +10,6 @@ export const Income = sequelize.define<createIncomeInput, createIncomeOutput>('i
     primaryKey: true
   },
   valueSpent: Sequelize.FLOAT,
-  descriptionText: Sequelize.STRING,
-  dataType: Sequelize.STRING,
+  description: Sequelize.TEXT,
+  category: Sequelize.STRING,
 });

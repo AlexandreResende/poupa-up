@@ -17,8 +17,8 @@ export class IncomeService {
     return {
       id: '1',
       valueSpent: 100,
-      descriptionText: 'sidhfd',
-      dataType: 'ahsdiauhd',
+      description: 'sidhfd',
+      category: 'ahsdiauhd',
     };
   }
 
