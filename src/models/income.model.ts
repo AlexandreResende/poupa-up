@@ -12,4 +12,6 @@ export const Income = sequelize.define<createIncomeInput, createIncomeOutput>('i
   valueSpent: Sequelize.FLOAT,
   description: Sequelize.TEXT,
   category: Sequelize.STRING,
+  month: Sequelize.INTEGER,
+  year: Sequelize.INTEGER
 });

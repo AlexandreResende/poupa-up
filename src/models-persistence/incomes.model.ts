@@ -1,5 +1,9 @@
 
-import { createIncomeInput, createIncomeRequest, createIncomeOutput } from '../data-source/incomes.ds';
+import { 
+  createIncomeInput,
+  createIncomeRequest,
+  createIncomeOutput,
+  getIncomesOutput } from '../data-source/incomes.ds';
 import { Income } from '../models/income.model';
 
 export class IncomeService {
@@ -11,15 +15,20 @@ export class IncomeService {
       id: '1',
       ...createIncomeData,
     }
-    //const incomeCreationOutput: createIncomeOutput = await Income.create(incomeCreationInput);
+    const incomeCreationOutput: createIncomeOutput = await Income.create(incomeCreationInput);
     
-    //return incomeCreationOutput;
-    return {
-      id: '1',
-      valueSpent: 100,
-      description: 'sidhfd',
-      category: 'ahsdiauhd',
-    };
+    return incomeCreationOutput;
   }
 
+  public async getAllIncomes(): Promise<getIncomesOutput> {
+    const allIncomes = await Income.findAll({});
+
+    return { incomes: allIncomes};
+  }
+
+  public async getMonthlyIncome(month: number, year: number): Promise<getIncomesOutput> {
+    const monthlyIncomes = await Income.findAll({ where: { month, year}});
+
+    return { incomes: monthlyIncomes }
+  }
 }

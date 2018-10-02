@@ -10,6 +10,7 @@
     "watch": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run watch-node\""
   },
   "dependencies": {
+    "@types/sequelize": "^4.27.26",
     "concurrently": "^3.5.1"
   },
   "author": "",

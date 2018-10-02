@@ -17,6 +17,12 @@ module.exports = {
       category: {
         type: Sequelize.STRING
       },
+      month: {
+        type: Sequelize.INTEGER
+      },
+      year: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -3,6 +3,8 @@ export interface createIncomeRequest {
   valueSpent: number,
   description: string,
   category: string,
+  month: number,
+  year: number
 }
 
 export interface createIncomeOutput {
@@ -10,6 +12,8 @@ export interface createIncomeOutput {
   valueSpent: number,
   description: string,
   category: string,
+  month: number,
+  year: number
 }
 
 export interface createIncomeInput {
@@ -17,4 +21,10 @@ export interface createIncomeInput {
   valueSpent: number,
   description: string,
   category: string,
+  month: number,
+  year: number
+}
+
+export interface getIncomesOutput {
+  incomes: createIncomeOutput[]
 }
