@@ -28,3 +28,11 @@ export interface createIncomeInput {
 export interface getIncomesOutput {
   incomes: createIncomeOutput[]
 }
+
+export interface updateIncome {
+  valueSpent?: number,
+  description?: string,
+  category?: string,
+  month?: number,
+  year?: number
+}
