@@ -3,7 +3,7 @@ import * as Sequelize from 'sequelize';
 import { sequelize } from '../models-persistence/sequelize';
 import { createIncomeInput, createIncomeOutput } from '../data-source/incomes.ds';
 
-export const Income = sequelize.define<createIncomeInput, createIncomeOutput>('incomes', {
+export const Income = sequelize.define<createIncomeInput, createIncomeOutput>('Incomes', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
