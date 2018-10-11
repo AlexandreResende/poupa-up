@@ -20,7 +20,10 @@ export const createIncome = async (req: Request, res:Response) => {
 
 export const updateIncome = async (req: Request, res:Response) => {
   const { id, ...rest } = req.body;
-  const updateIncomeRespose = await new IncomeService().updateIncome(id, rest);
+  const updateIncomeRespose = await new IncomeService().updateIncome(id, rest)
+    .catch(err => {
+      throw new Error('Could not update income.');
+    });
 
   res.status(200).send(updateIncomeRespose);
 }
