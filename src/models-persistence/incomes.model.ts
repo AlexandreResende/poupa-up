@@ -36,7 +36,7 @@ export class IncomeService {
   public async updateIncome(id: string, incomeUpdateData: updateIncome) {
     const updateIncome = await Income.update(incomeUpdateData, { where: { id } })
       .catch(err => {
-        console.log('An erro occurred when updating an income.');
+        console.log('An error occurred when updating an income.');
         return err;
       });
 
