@@ -1,39 +1,39 @@
 
 import { 
-  createExpenseInput,
-  createExpenseRequest,
-  createExpenseOutput,
-  updateExpense,
-  getExpensesOutput } from '../data-source/expenses.ds';
+  ICreateExpenseInput,
+  ICreateExpenseRequest,
+  ICreateExpenseOutput,
+  IUpdateExpense,
+  IGetExpensesOutput } from '../data-source/expenses.ds';
 import { Expense } from '../models/Expense.model';
 
 export class ExpenseService {
 
   constructor() {}
 
-  public async createExpense(createExpenseData: createExpenseRequest): Promise<createExpenseOutput> {
-    const expenseCreationInput: createExpenseInput = {
+  public async createExpense(createExpenseData: ICreateExpenseRequest): Promise<ICreateExpenseOutput> {
+    const expenseCreationInput: ICreateExpenseInput = {
       id: '1',
       ...createExpenseData,
     }
-    const expenseCreationOutput: createExpenseOutput = await Expense.create(expenseCreationInput);
+    const expenseCreationOutput: ICreateExpenseOutput = await Expense.create(expenseCreationInput);
     
     return expenseCreationOutput;
   }
 
-  public async getAllExpenses(): Promise<getExpensesOutput> {
+  public async getAllExpenses(): Promise<IGetExpensesOutput> {
     const allExpenses = await Expense.findAll({});
 
     return { expenses: allExpenses};
   }
 
-  public async getMonthlyExpenses(month: number, year: number): Promise<getExpensesOutput> {
+  public async getMonthlyExpenses(month: number, year: number): Promise<IGetExpensesOutput> {
     const monthlyExpenses = await Expense.findAll({ where: { month, year}});
 
     return { expenses: monthlyExpenses }
   }
 
-  public async updateExpense(id: string, expenseUpdateData: updateExpense) {
+  public async updateExpense(id: string, expenseUpdateData: IUpdateExpense) {
     const updateExpense = await Expense.update(expenseUpdateData, { where: { id } })
       .catch(err => {
         console.log('An error occurred when updating an Expense.');

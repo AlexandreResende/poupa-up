@@ -1,7 +1,7 @@
 
 import {Request, Response} from 'express';
 import { ExpenseService } from '../models-persistence/Expenses.model';
-import {createExpenseOutput } from '../data-source/Expenses.ds';
+import { ICreateExpenseOutput } from '../data-source/Expenses.ds';
 
 export const getAllExpenses = async (req: Request, res: Response) => {
   const getAllExpenseResponse = await new ExpenseService().getAllExpenses();
@@ -18,7 +18,7 @@ export const getMonthlyExpense = async (req: Request, res: Response) => {
 
 export const createExpense = async (req: Request, res: Response) => {
   const createExpenseReq = req.body;
-  const createExpenseResponse: createExpenseOutput = await new ExpenseService().createExpense(createExpenseReq);
+  const createExpenseResponse: ICreateExpenseOutput = await new ExpenseService().createExpense(createExpenseReq);
   
   res.status(200).send(createExpenseResponse);
 }

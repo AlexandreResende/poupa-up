@@ -1,5 +1,5 @@
 
-export interface createExpenseRequest {
+export interface ICreateExpenseRequest {
   valueSpent: number,
   description: string,
   category: string,
@@ -7,7 +7,7 @@ export interface createExpenseRequest {
   year: number
 }
 
-export interface createExpenseOutput {
+export interface ICreateExpenseOutput {
   id: string,
   valueSpent: number,
   description: string,
@@ -16,7 +16,7 @@ export interface createExpenseOutput {
   year: number
 }
 
-export interface createExpenseInput {
+export interface ICreateExpenseInput {
   id: string,
   valueSpent: number,
   description: string,
@@ -25,11 +25,11 @@ export interface createExpenseInput {
   year: number
 }
 
-export interface getExpensesOutput {
-  expenses: createExpenseOutput[]
+export interface IGetExpensesOutput {
+  expenses: ICreateExpenseOutput[]
 }
 
-export interface updateExpense {
+export interface IUpdateExpense {
   valueSpent?: number,
   description?: string,
   category?: string,
