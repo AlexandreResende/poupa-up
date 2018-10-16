@@ -1,5 +1,5 @@
 
-export interface createIncomeRequest {
+export interface ICreateIncomeRequest {
   valueSpent: number,
   description: string,
   category: string,
@@ -7,7 +7,7 @@ export interface createIncomeRequest {
   year: number
 }
 
-export interface createIncomeOutput {
+export interface ICreateIncomeOutput {
   id: string,
   valueSpent: number,
   description: string,
@@ -16,7 +16,7 @@ export interface createIncomeOutput {
   year: number
 }
 
-export interface createIncomeInput {
+export interface ICreateIncomeInput {
   id: string,
   valueSpent: number,
   description: string,
@@ -25,11 +25,11 @@ export interface createIncomeInput {
   year: number
 }
 
-export interface getIncomesOutput {
-  incomes: createIncomeOutput[]
+export interface IGetIncomesOutput {
+  incomes: ICreateIncomeOutput[]
 }
 
-export interface updateIncome {
+export interface IUpdateIncome {
   valueSpent?: number,
   description?: string,
   category?: string,

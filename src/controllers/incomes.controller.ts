@@ -1,7 +1,7 @@
 
 import {Request, Response} from 'express';
 import { IncomeService } from '../models-persistence/incomes.model';
-import {createIncomeOutput } from '../data-source/incomes.ds';
+import { ICreateIncomeOutput } from '../data-source/incomes.ds';
 
 export const getAllIncomes = async (req: Request, res: Response) => {
   const getAllIncomeResponse = await new IncomeService().getAllIncomes();
@@ -18,7 +18,7 @@ export const getMonthlyIncome = async (req: Request, res: Response) => {
 
 export const createIncome = async (req: Request, res: Response) => {
   const createIncomeReq = req.body;
-  const createIncomeResponse: createIncomeOutput = await new IncomeService().createIncome(createIncomeReq);
+  const createIncomeResponse: ICreateIncomeOutput = await new IncomeService().createIncome(createIncomeReq);
   
   res.status(200).send(createIncomeResponse);
 }
