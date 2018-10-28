@@ -1,7 +1,7 @@
 
 import {Request, Response} from 'express';
-import { IncomeService } from '../models-persistence/incomes.model';
-import { ICreateIncomeOutput } from '../data-source/incomes.ds';
+import { IncomeService } from './incomes.model';
+import { ICreateIncomeOutput } from './incomes.ds';
 
 export const getAllIncomes = async (req: Request, res: Response) => {
   const getAllIncomeResponse = await new IncomeService().getAllIncomes();

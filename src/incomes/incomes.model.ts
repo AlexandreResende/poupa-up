@@ -4,7 +4,7 @@ import {
   ICreateIncomeRequest,
   ICreateIncomeOutput,
   IUpdateIncome,
-  IGetIncomesOutput } from '../data-source/incomes.ds';
+  IGetIncomesOutput } from './incomes.ds';
 import { Income } from '../models/income.model';
 
 export class IncomeService {

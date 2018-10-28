@@ -6,7 +6,7 @@ import {
   createIncome,
   updateIncome,
   deleteIncome
-} from '../controllers/incomes.controller';
+} from './incomes.controller';
 
 export class IncomeRoutes {
 
@@ -18,14 +18,12 @@ export class IncomeRoutes {
   }
 
   private routes(): Router {
-    this.incomeRouter
+    return this.incomeRouter
       .get('/incomes/getAllIncomes', getAllIncomes)
       .get('/incomes/getMonthlyIncome/:month/:year', getMonthlyIncome)
       .post('/incomes/createIncome', createIncome)
       .put('/incomes/updateIncome', updateIncome)
       .delete('/incomes/deleteIncome', deleteIncome);
-
-    return this.incomeRouter;
   }
 
   public getIncomeRoutes():Router {

@@ -1,5 +1,5 @@
 
-import { ISearchOutput } from '../data-source/searches.ds';
+import { ISearchOutput } from './searches.ds';
 
 import { Expense } from '../models/Expense.model';
 import { Income } from '../models/income.model';

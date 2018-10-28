@@ -4,7 +4,7 @@ import {
   ICreateExpenseRequest,
   ICreateExpenseOutput,
   IUpdateExpense,
-  IGetExpensesOutput } from '../data-source/expenses.ds';
+  IGetExpensesOutput } from './expenses.ds';
 import { Expense } from '../models/Expense.model';
 
 export class ExpenseService {

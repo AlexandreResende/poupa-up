@@ -1,7 +1,7 @@
 
 import {Request, Response} from 'express';
-import { ExpenseService } from '../models-persistence/Expenses.model';
-import { ICreateExpenseOutput } from '../data-source/Expenses.ds';
+import { ExpenseService } from './expenses.model';
+import { ICreateExpenseOutput } from './expenses.ds';
 
 export const getAllExpenses = async (req: Request, res: Response) => {
   const getAllExpenseResponse = await new ExpenseService().getAllExpenses();
