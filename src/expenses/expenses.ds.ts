@@ -1,5 +1,5 @@
 
-export interface ICreateExpenseRequest {
+export interface IBasicExpenseStructure {
   valueSpent: number,
   description: string,
   category: string,
@@ -7,22 +7,14 @@ export interface ICreateExpenseRequest {
   year: number
 }
 
-export interface ICreateExpenseOutput {
+export interface ICreateExpenseRequest extends IBasicExpenseStructure{ }
+
+export interface ICreateExpenseOutput extends IBasicExpenseStructure {
   id: string,
-  valueSpent: number,
-  description: string,
-  category: string,
-  month: number,
-  year: number
 }
 
-export interface ICreateExpenseInput {
+export interface ICreateExpenseInput extends IBasicExpenseStructure {
   id: string,
-  valueSpent: number,
-  description: string,
-  category: string,
-  month: number,
-  year: number
 }
 
 export interface IGetExpensesOutput {

@@ -1,5 +1,5 @@
 
-export interface ICreateIncomeRequest {
+export interface IBasicIncomeStructure {
   valueSpent: number,
   description: string,
   category: string,
@@ -7,22 +7,14 @@ export interface ICreateIncomeRequest {
   year: number
 }
 
-export interface ICreateIncomeOutput {
+export interface ICreateIncomeRequest extends IBasicIncomeStructure { }
+
+export interface ICreateIncomeOutput extends IBasicIncomeStructure {
   id: string,
-  valueSpent: number,
-  description: string,
-  category: string,
-  month: number,
-  year: number
 }
 
-export interface ICreateIncomeInput {
+export interface ICreateIncomeInput extends IBasicIncomeStructure {
   id: string,
-  valueSpent: number,
-  description: string,
-  category: string,
-  month: number,
-  year: number
 }
 
 export interface IGetIncomesOutput {
