@@ -19,11 +19,11 @@ export class IncomeRoutes {
 
   private routes(): Router {
     return this.incomeRouter
-      .get('/incomes/getAllIncomes', getAllIncomes)
-      .get('/incomes/getMonthlyIncome/:month/:year', getMonthlyIncome)
-      .post('/incomes/createIncome', createIncome)
-      .put('/incomes/updateIncome', updateIncome)
-      .delete('/incomes/deleteIncome', deleteIncome);
+      .get('/incomes/get-all-incomes', getAllIncomes)
+      .get('/incomes/get-monthly-incomes/:month/:year', getMonthlyIncome)
+      .post('/incomes/create', createIncome)
+      .put('/incomes/update/:id', updateIncome)
+      .delete('/incomes/delete/:id', deleteIncome);
   }
 
   public getIncomeRoutes():Router {

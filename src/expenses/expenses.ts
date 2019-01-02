@@ -19,11 +19,11 @@ export class ExpenseRoutes {
 
   private routes(): Router {
     this.expenseRouter
-      .get('/incomes/getAllIncomes', getAllExpenses)
-      .get('/incomes/getMonthlyIncome/:month/:year', getMonthlyExpense)
-      .post('/incomes/createIncome', createExpense)
-      .put('/incomes/updateIncome', updateExpense)
-      .delete('/incomes/deleteIncome', deleteExpense);
+      .get('/expenses/get-all-expenses', getAllExpenses)
+      .get('/expenses/get-monthly-expenses/:month/:year', getMonthlyExpense)
+      .post('/expenses/create', createExpense)
+      .put('/expenses/update/:id', updateExpense)
+      .delete('/expenses/delete/:id', deleteExpense);
 
     return this.expenseRouter;
   }
