@@ -49,5 +49,5 @@ export const deleteIncome = async (req: Request, res: Response) => {
       throw new Error(`Could not delete income ${err}`);
     });
 
-  res.status(200).send(deleteIncomeResponse);
+  res.status(200).send({ deleted: deleteIncomeResponse });
 }
