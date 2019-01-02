@@ -13,7 +13,7 @@ export const getAllIncomes = async (req: Request, res: Response) => {
 }
 
 export const getMonthlyIncome = async (req: Request, res: Response) => {
-  const { month, year } = req.body;
+  const { month, year } = req.params;
   const getMonthlyIncomeResponse = await new IncomeService().getMonthlyIncomes(month, year)
     .catch(err => {
       throw new Error(`Could not retrieve monthly incomes ${err}`);

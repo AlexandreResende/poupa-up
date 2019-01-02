@@ -13,7 +13,7 @@ export const getAllExpenses = async (req: Request, res: Response) => {
 }
 
 export const getMonthlyExpense = async (req: Request, res: Response) => {
-  const { month, year } = req.body;
+  const { month, year } = req.params;
   const getMonthlyExpenseResponse = await new ExpenseService().getMonthlyExpenses(month, year)
     .catch(err => {
       throw new Error(`Could not retrieve monthly expenses ${err}`);
