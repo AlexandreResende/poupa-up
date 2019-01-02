@@ -6,6 +6,7 @@ import {
   IUpdateExpense,
   IGetExpensesOutput } from './expenses.ds';
 import { Expense } from '../models/Expense.model';
+import { v4 as uuidv4 } from 'uuid';
 
 export class ExpenseService {
 
@@ -13,7 +14,7 @@ export class ExpenseService {
 
   public async createExpense(createExpenseData: ICreateExpenseRequest): Promise<ICreateExpenseOutput> {
     const expenseCreationInput: ICreateExpenseInput = {
-      id: '1',
+      id: uuidv4(),
       ...createExpenseData,
     }
     const expenseCreationOutput: ICreateExpenseOutput = await Expense.create(expenseCreationInput);
