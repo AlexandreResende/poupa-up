@@ -4,9 +4,9 @@ module.exports = {
     return queryInterface.createTable('Incomes', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement: false,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       valueSpent: {
         type: Sequelize.FLOAT
