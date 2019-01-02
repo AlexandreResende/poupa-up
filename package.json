@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@types/sequelize": "^4.27.26",
-    "concurrently": "^3.5.1"
+    "@types/uuid": "^3.4.4",
+    "concurrently": "^3.5.1",
+    "uuid": "^3.3.2"
   },
   "author": "",
   "license": "ISC",

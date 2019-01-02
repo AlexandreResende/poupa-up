@@ -6,6 +6,7 @@ import {
   IUpdateIncome,
   IGetIncomesOutput } from './incomes.ds';
 import { Income } from '../models/income.model';
+import { v4 as uuidv4 } from 'uuid'
 
 export class IncomeService {
 
@@ -13,7 +14,7 @@ export class IncomeService {
 
   public async createIncome(createIncomeData: ICreateIncomeRequest): Promise<ICreateIncomeOutput> {
     const incomeCreationInput: ICreateIncomeInput = {
-      id: '1',
+      id: uuidv4(),
       ...createIncomeData,
     }
     const incomeCreationOutput: ICreateIncomeOutput = await Income.create(incomeCreationInput);

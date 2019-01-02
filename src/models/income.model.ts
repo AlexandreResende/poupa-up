@@ -5,8 +5,8 @@ import { ICreateIncomeInput, ICreateIncomeOutput } from '../incomes/incomes.ds';
 
 export const Income = sequelize.define<ICreateIncomeInput, ICreateIncomeOutput>('Incomes', {
   id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
+    type: Sequelize.STRING,
+    autoIncrement: false,
     primaryKey: true
   },
   valueSpent: Sequelize.FLOAT,

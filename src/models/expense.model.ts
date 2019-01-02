@@ -5,8 +5,8 @@ import { ICreateExpenseInput, ICreateExpenseOutput } from '../expenses/expenses.
 
 export const Expense = sequelize.define<ICreateExpenseInput, ICreateExpenseOutput>('Expenses', {
   id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
+    type: Sequelize.STRING,
+    autoIncrement: false,
     primaryKey: true
   },
   valueSpent: Sequelize.FLOAT,
