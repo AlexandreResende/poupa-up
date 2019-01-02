@@ -22,8 +22,8 @@ export class ExpenseRoutes {
       .get('/expenses/get-all-expenses', getAllExpenses)
       .get('/expenses/get-monthly-expenses/:month/:year', getMonthlyExpense)
       .post('/expenses/create', createExpense)
-      .put('/expenses/update/:id', updateExpense)
-      .delete('/expenses/delete/:id', deleteExpense);
+      .put('/expenses/update', updateExpense)
+      .delete('/expenses/delete', deleteExpense);
 
     return this.expenseRouter;
   }

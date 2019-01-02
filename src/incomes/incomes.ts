@@ -22,8 +22,8 @@ export class IncomeRoutes {
       .get('/incomes/get-all-incomes', getAllIncomes)
       .get('/incomes/get-monthly-incomes/:month/:year', getMonthlyIncome)
       .post('/incomes/create', createIncome)
-      .put('/incomes/update/:id', updateIncome)
-      .delete('/incomes/delete/:id', deleteIncome);
+      .put('/incomes/update', updateIncome)
+      .delete('/incomes/delete', deleteIncome);
   }
 
   public getIncomeRoutes():Router {
