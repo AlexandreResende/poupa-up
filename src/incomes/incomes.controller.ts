@@ -39,7 +39,7 @@ export const updateIncome = async (req: Request, res: Response) => {
       throw new Error(`Could not update income ${err}`);
     });
 
-  res.status(200).send(updateIncomeRespose);
+  res.status(200).send({ updated: updateIncomeRespose[0] });
 }
 
 export const deleteIncome = async (req: Request, res: Response) => {
