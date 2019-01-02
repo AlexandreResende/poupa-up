@@ -39,7 +39,7 @@ export const updateExpense = async (req: Request, res: Response) => {
       throw new Error(`Could not update Expense ${err}`);
     });
 
-  res.status(200).send(updateExpenseRespose);
+  res.status(200).send({ updated: updateExpenseRespose[0] });
 }
 
 export const deleteExpense = async (req: Request, res: Response) => {
@@ -49,5 +49,5 @@ export const deleteExpense = async (req: Request, res: Response) => {
       throw new Error(`Could not delete expense ${err}`);
     });
 
-  res.status(200).send(deleteExpenseResponse);
+  res.status(200).send({ deleted: deleteExpenseResponse });
 }
