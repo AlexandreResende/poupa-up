@@ -1,30 +1,28 @@
 
 export interface IBasicIncomeStructure {
-  valueSpent: number,
-  description: string,
-  category: string,
-  month: number,
-  year: number
+  valueSpent: number;
+  description: string;
+  category: string;
+  month: number;
+  year: number;
 }
 
-export interface ICreateIncomeRequest extends IBasicIncomeStructure { }
-
 export interface ICreateIncomeOutput extends IBasicIncomeStructure {
-  id: string,
+  id: string;
 }
 
 export interface ICreateIncomeInput extends IBasicIncomeStructure {
-  id: string,
+  id: string;
 }
 
 export interface IGetIncomesOutput {
-  incomes: ICreateIncomeOutput[]
+  incomes: ICreateIncomeOutput[];
 }
 
 export interface IUpdateIncome {
-  valueSpent?: number,
-  description?: string,
-  category?: string,
-  month?: number,
-  year?: number
+  valueSpent?: number;
+  description?: string;
+  category?: string;
+  month?: number;
+  year?: number;
 }

@@ -1,14 +1,10 @@
 
-import { ISearchOutput } from './searches.ds';
+import { ISearchOutput } from "./searches.ds";
 
-import { Expense } from '../models/Expense.model';
-import { Income } from '../models/income.model';
-
+import { Expense } from "../models/Expense.model";
+import { Income } from "../models/income.model";
 
 export class SearchService {
-
-  constructor() {}
-
   public async searchByCategory(category: string): Promise<ISearchOutput> {
     const expensesByCategory = await Expense.findAll({ where: { category }});
     const incomesByCategory = await Income.findAll({ where: { category }});

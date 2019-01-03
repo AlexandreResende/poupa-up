@@ -1,12 +1,13 @@
 
-import { Router } from 'express';
 import {
   createExpense,
   deleteExpense,
   getAllExpenses,
   getMonthlyExpense,
-  updateExpense
-} from './expenses.controller';
+  updateExpense,
+} from "./expenses.controller";
+
+import { Router } from "express";
 
 export class ExpenseRoutes {
 
@@ -17,18 +18,18 @@ export class ExpenseRoutes {
     this.routes();
   }
 
-  private routes(): Router {
-    this.expenseRouter
-      .get('/expenses/get-all-expenses', getAllExpenses)
-      .get('/expenses/get-monthly-expenses/:month/:year', getMonthlyExpense)
-      .post('/expenses/create', createExpense)
-      .put('/expenses/update', updateExpense)
-      .delete('/expenses/delete', deleteExpense);
-
+  public getExpenseRoutes(): Router {
     return this.expenseRouter;
   }
 
-  public getExpenseRoutes():Router {
+  private routes(): Router {
+    this.expenseRouter
+      .get("/expenses/get-all-expenses", getAllExpenses)
+      .get("/expenses/get-monthly-expenses/:month/:year", getMonthlyExpense)
+      .post("/expenses/create", createExpense)
+      .put("/expenses/update", updateExpense)
+      .delete("/expenses/delete", deleteExpense);
+
     return this.expenseRouter;
   }
 }

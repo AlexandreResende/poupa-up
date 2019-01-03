@@ -1,14 +1,13 @@
 
+import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as helmet from "helmet";
-import * as bodyParser from "body-parser";
 
-import { IncomeRoutes } from './incomes/incomes';
-import { ExpenseRoutes } from './expenses/expenses';
+import { ExpenseRoutes } from "./expenses/expenses";
+import { IncomeRoutes } from "./incomes/incomes";
 
 class App {
-
-  public app:express.Application;
+  public app: express.Application;
   private incomeRoutes: IncomeRoutes = new IncomeRoutes();
   private expenseRoutes: ExpenseRoutes = new ExpenseRoutes();
 
@@ -17,8 +16,7 @@ class App {
     this.config();
   }
 
-  config() {
-    console.log('Entered config function');
+  public config() {
     this.app
       .use(helmet())
       .use(bodyParser.urlencoded({ extended: true }))
