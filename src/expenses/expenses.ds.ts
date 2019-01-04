@@ -1,6 +1,6 @@
 
 export interface IBasicExpenseStructure {
-  valueSpent: number;
+  value: number;
   description: string;
   category: string;
   month: number;
@@ -20,7 +20,7 @@ export interface IGetExpensesOutput {
 }
 
 export interface IUpdateExpense {
-  valueSpent?: number;
+  value?: number;
   description?: string;
   category?: string;
   month?: number;

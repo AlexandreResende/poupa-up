@@ -1,6 +1,6 @@
 
 export interface IBasicIncomeStructure {
-  valueSpent: number;
+  value: number;
   description: string;
   category: string;
   month: number;
@@ -20,7 +20,7 @@ export interface IGetIncomesOutput {
 }
 
 export interface IUpdateIncome {
-  valueSpent?: number;
+  value?: number;
   description?: string;
   category?: string;
   month?: number;
