@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.STRING
       },
-      valueSpent: {
+      value: {
         type: Sequelize.FLOAT
       },
       description: {

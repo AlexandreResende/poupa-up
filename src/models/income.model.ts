@@ -9,7 +9,7 @@ export const Income = sequelize.define<ICreateIncomeInput, ICreateIncomeOutput>(
     autoIncrement: false,
     primaryKey: true
   },
-  valueSpent: Sequelize.FLOAT,
+  value: Sequelize.FLOAT,
   description: Sequelize.TEXT,
   category: Sequelize.STRING,
   month: Sequelize.INTEGER,

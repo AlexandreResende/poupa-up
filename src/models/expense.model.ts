@@ -9,7 +9,7 @@ export const Expense = sequelize.define<ICreateExpenseInput, ICreateExpenseOutpu
     autoIncrement: false,
     primaryKey: true
   },
-  valueSpent: Sequelize.FLOAT,
+  value: Sequelize.FLOAT,
   description: Sequelize.TEXT,
   category: Sequelize.STRING,
   month: Sequelize.INTEGER,
