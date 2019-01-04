@@ -24,7 +24,7 @@ export class IncomeService {
   public async getAllIncomes(): Promise<IGetIncomesOutput> {
     const allIncomes = await Income.findAll({});
 
-    return { incomes: allIncomes};
+    return { incomes: allIncomes };
   }
 
   public async getMonthlyIncomes(month: number, year: number): Promise<IGetIncomesOutput> {

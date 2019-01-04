@@ -1,9 +1,9 @@
 
 import { Expense } from "../models/Expense.model";
 import {
+  IBasicExpenseStructure,
   ICreateExpenseInput,
   ICreateExpenseOutput,
-  IBasicExpenseStructure,
   IGetExpensesOutput,
   IUpdateExpense,
 } from "./expenses.ds";
