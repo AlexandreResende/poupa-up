@@ -1,8 +1,10 @@
 
+import Category from "../enums/categories";
+
 export interface IBasicExpenseStructure {
   value: number;
   description: string;
-  category: string;
+  category: Category;
   month: number;
   year: number;
 }
@@ -22,7 +24,7 @@ export interface IGetExpensesOutput {
 export interface IUpdateExpense {
   value?: number;
   description?: string;
-  category?: string;
+  category?: Category;
   month?: number;
   year?: number;
 }

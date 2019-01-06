@@ -1,8 +1,10 @@
 
+import Category from "../enums/categories";
+
 export interface IBasicIncomeStructure {
   value: number;
   description: string;
-  category: string;
+  category: Category;
   month: number;
   year: number;
 }
@@ -22,7 +24,7 @@ export interface IGetIncomesOutput {
 export interface IUpdateIncome {
   value?: number;
   description?: string;
-  category?: string;
+  category?: Category;
   month?: number;
   year?: number;
 }
