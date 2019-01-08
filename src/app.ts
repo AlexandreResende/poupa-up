@@ -6,6 +6,7 @@ import * as helmet from "helmet";
 import { ExpenseRoutes } from "./expenses/expenses";
 import { IncomeRoutes } from "./incomes/incomes";
 import CategoryMiddleware from "./middlewares/categories.middleware";
+import CorsServices from "./services/corsServices";
 
 class App {
   public app: express.Application;
@@ -18,8 +19,10 @@ class App {
   }
 
   public config() {
+    const corsService = new CorsServices();
     this.app
       .use(helmet())
+      .use(corsService.appliedCorsOptions())
       .use(bodyParser.urlencoded({ extended: true }))
       .use(bodyParser.json())
       .use(CategoryMiddleware)

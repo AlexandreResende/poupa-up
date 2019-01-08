@@ -16,12 +16,14 @@
     "@types/sequelize": "^4.27.26",
     "@types/uuid": "^3.4.4",
     "concurrently": "^3.5.1",
+    "cors": "^2.8.5",
     "uuid": "^3.3.2"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
+    "@types/cors": "^2.8.4",
     "@types/express": "^4.16.0",
     "@types/helmet": "0.0.40",
     "@types/joi": "^13.4.5",

@@ -8,6 +8,7 @@ import {
 } from "./expenses.controller";
 
 import { Router } from "express";
+import CorsServices from "../services/corsServices";
 
 export class ExpenseRoutes {
 
@@ -23,7 +24,10 @@ export class ExpenseRoutes {
   }
 
   private routes(): Router {
+    const corsServices = new CorsServices();
+
     this.expenseRouter
+      .options("*", corsServices.appliedCorsOptions())
       .get("/expenses/get-all-expenses", getAllExpenses)
       .get("/expenses/get-monthly-expenses/:month/:year", getMonthlyExpense)
       .post("/expenses/create", createExpense)

@@ -8,6 +8,7 @@ import {
 } from "./incomes.controller";
 
 import { Router } from "express";
+import CorsServices from "../services/corsServices";
 
 export class IncomeRoutes {
 
@@ -23,7 +24,10 @@ export class IncomeRoutes {
   }
 
   private routes(): Router {
+    const corsServices = new CorsServices();
+
     return this.incomeRouter
+      .options("*", corsServices.appliedCorsOptions())
       .get("/incomes/get-all-incomes", getAllIncomes)
       .get("/incomes/get-monthly-incomes/:month/:year", getMonthlyIncome)
       .post("/incomes/create", createIncome)
