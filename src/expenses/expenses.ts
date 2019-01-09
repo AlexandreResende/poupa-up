@@ -28,11 +28,11 @@ export class ExpenseRoutes {
 
     this.expenseRouter
       .options("*", corsServices.appliedCorsOptions())
-      .get("/expenses/get-all-expenses", getAllExpenses)
-      .get("/expenses/get-monthly-expenses/:month/:year", getMonthlyExpense)
-      .post("/expenses/create", createExpense)
-      .put("/expenses/update", updateExpense)
-      .delete("/expenses/delete", deleteExpense);
+      .get("/get-all-expenses", getAllExpenses)
+      .get("/get-monthly-expenses/:month/:year", getMonthlyExpense)
+      .post("/create", createExpense)
+      .put("/update", updateExpense)
+      .delete("/delete", deleteExpense);
 
     return this.expenseRouter;
   }

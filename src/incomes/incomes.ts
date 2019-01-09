@@ -28,10 +28,10 @@ export class IncomeRoutes {
 
     return this.incomeRouter
       .options("*", corsServices.appliedCorsOptions())
-      .get("/incomes/get-all-incomes", getAllIncomes)
-      .get("/incomes/get-monthly-incomes/:month/:year", getMonthlyIncome)
-      .post("/incomes/create", createIncome)
-      .put("/incomes/update", updateIncome)
-      .delete("/incomes/delete", deleteIncome);
+      .get("/get-all-incomes", getAllIncomes)
+      .get("/get-monthly-incomes/:month/:year", getMonthlyIncome)
+      .post("/create", createIncome)
+      .put("/update", updateIncome)
+      .delete("/delete", deleteIncome);
   }
 }

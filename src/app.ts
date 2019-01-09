@@ -26,8 +26,8 @@ class App {
       .use(bodyParser.urlencoded({ extended: true }))
       .use(bodyParser.json())
       .use(CategoryMiddleware)
-      .use(this.incomeRoutes.getIncomeRoutes())
-      .use(this.expenseRoutes.getExpenseRoutes());
+      .use("/incomes", this.incomeRoutes.getIncomeRoutes())
+      .use("/expenses", this.expenseRoutes.getExpenseRoutes());
   }
 }
 
