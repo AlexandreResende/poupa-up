@@ -1,9 +1,9 @@
 
-import * as Sequelize from 'sequelize';
-import { sequelize } from '../db/sequelize';
-import { ICreateExpenseInput, ICreateExpenseOutput } from '../expenses/expenses.ds';
+import * as Sequelize from "sequelize";
+import { sequelize } from "../db/sequelize";
+import { ICreateExpenseInput, ICreateExpenseOutput } from "../expenses/expenses.ds";
 
-export const Expense = sequelize.define<ICreateExpenseInput, ICreateExpenseOutput>('Expenses', {
+export const Expense = sequelize.define<ICreateExpenseInput, ICreateExpenseOutput>("Expenses", {
   id: {
     type: Sequelize.STRING,
     autoIncrement: false,
@@ -13,5 +13,5 @@ export const Expense = sequelize.define<ICreateExpenseInput, ICreateExpenseOutpu
   description: Sequelize.TEXT,
   category: Sequelize.STRING,
   month: Sequelize.INTEGER,
-  year: Sequelize.INTEGER
+  year: Sequelize.INTEGER,
 });
