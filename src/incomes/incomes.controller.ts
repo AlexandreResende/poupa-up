@@ -11,6 +11,7 @@ export const getAllIncomes = async (req: Request, res: Response) => {
       incomes,
     });
   } catch (err) {
+
     res.status(500).json({
       error: `Could not retrieve all incomes ${err}`,
       incomes: null,
