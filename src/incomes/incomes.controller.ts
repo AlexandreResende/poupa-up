@@ -5,14 +5,13 @@ import { IncomeService } from "./incomes.model";
 export const getAllIncomes = async (req: Request, res: Response) => {
   try {
     const { incomes } = await new IncomeService().getAllIncomes();
-    console.log('AKIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII');
-    console.log(incomes);
+
     res.status(200).json({
       error: null,
       incomes,
     });
   } catch (err) {
-    console.log(err);
+
     res.status(500).json({
       error: `Could not retrieve all incomes ${err}`,
       incomes: null,
