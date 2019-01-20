@@ -1,7 +1,7 @@
 
 import { ISearchOutput } from "./searches.ds";
 
-import { Expense } from "../models/Expense.model";
+import { Expense } from "../models/expense.model";
 import { Income } from "../models/income.model";
 
 export class SearchService {

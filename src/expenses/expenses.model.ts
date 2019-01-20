@@ -1,5 +1,5 @@
 
-import { Expense } from "../models/Expense.model";
+import { Expense } from "../models/expense.model";
 import {
   IBasicExpenseStructure,
   ICreateExpenseInput,
