@@ -22,7 +22,7 @@ export const getAllIncomes = async (req: Request, res: Response) => {
 export const getMonthlyIncome = async (req: Request, res: Response) => {
   const { month, year } = req.params;
   try {
-    const { incomes } = await new IncomeService().getMonthlyIncomes(month, year);
+    const { incomes } = await new IncomeService().getMonthlyIncomes(Number(month), Number(year));
 
     res.status(200).json({
       error: null,

@@ -21,7 +21,7 @@ export const getAllExpenses = async (req: Request, res: Response) => {
 export const getMonthlyExpense = async (req: Request, res: Response) => {
   const { month, year } = req.params;
   try {
-    const { expenses } = await new ExpenseService().getMonthlyExpenses(month, year);
+    const { expenses } = await new ExpenseService().getMonthlyExpenses(Number(month), Number(year));
 
     res.status(200).json({
       error: null,

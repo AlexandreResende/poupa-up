@@ -10,8 +10,8 @@ import CategoryMiddleware from "./middlewares/categories.middleware";
 
 class App {
   public app: express.Application;
-  private incomeRoutes: IncomeRoutes = new IncomeRoutes();
-  private expenseRoutes: ExpenseRoutes = new ExpenseRoutes();
+  private incomeRoutes = new IncomeRoutes();
+  private expenseRoutes = new ExpenseRoutes();
 
   constructor() {
     this.app = express();
