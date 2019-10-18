@@ -1,0 +1,28 @@
+version: '3'
+services:
+  poupa-up:
+    container_name: poupa-up
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "7777"
+    ports:
+      - "7777:7777"
+    volumes:
+      - node_modules
+      - poupa-up
+
+  postgres:
+    image: postgres:10.8-alpine
+    container_name: postgres_poupa_up
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=poupa_up
+    volumes:
+      - ./data/postgres:/var/lib/docker/volumes
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
