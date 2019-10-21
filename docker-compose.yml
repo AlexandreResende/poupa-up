@@ -2,6 +2,7 @@ version: '3'
 services:
   poupa-up:
     container_name: poupa-up
+    working_dir: /home/Projects/poupa-up
     build:
       context: .
       dockerfile: Dockerfile
@@ -21,7 +22,7 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=poupa_up
     volumes:
-      - ./data/postgres:/var/lib/docker/volumes
+      - /var/lib/docker/volumes
     expose:
       - "5432"
     ports:
