@@ -4,15 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "ts-node index.ts",
-    "build": "tsc",
-    "start": "tsc-watch",
+    "start": "tsc && nodemon index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate-undo": "./node_modules/.bin/sequelize db:migrate:undo:all",
-    "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "watch-ts": "tsc -w",
-    "watch-node": "nodemon index.ts",
-    "watch": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"npm run watch-ts\" \"npm run watch-node\""
+    "migrate": "./node_modules/.bin/sequelize db:migrate"
   },
   "dependencies": {
     "@types/body-parser": "^1.17.0",
