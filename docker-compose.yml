@@ -5,6 +5,8 @@ services:
     build: .
     restart: always
     command: npm start
+    volumes:
+      - './:/poupa-up'
     ports:
       - "7777:7777"
     environment:
