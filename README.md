@@ -12,6 +12,10 @@
 
 #### Running the Application
 
-Make sure to have Typescript installed on your computer
+Make sure you have docker and docker-compose installed on your computer
 
-> npm run watch
+After that just type the following command:
+
+> docker-compose up
+
+The application will run on port 7777
