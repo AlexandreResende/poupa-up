@@ -11,3 +11,15 @@ services:
       - "7777:7777"
     environment:
       NODE_ENV: "development"
+
+  database:
+    image: postgres
+    env_file: 
+      - database.env
+    volumes:
+      - database:/var/lib/postgresql/data
+    ports: 
+      - 5432:5432
+
+volumes:
+  database: #
