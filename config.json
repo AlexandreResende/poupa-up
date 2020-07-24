@@ -1,0 +1,18 @@
+{
+  "development": {
+    "username": "postgrestest",
+    "password": "postgrestest",
+    "database": "poupaup",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "staging": {
+    "use_env_variable": "DATABASE_URL",
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URL",
+    "logging": false
+  }
+}
