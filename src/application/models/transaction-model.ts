@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { Table, Model, PrimaryKey, IsFloat, Column, NotEmpty, Unique, DataType, Default, AllowNull } from "sequelize-typescript";
+import { Table, Model, PrimaryKey, Column, Unique, DataType, Default, AllowNull } from "sequelize-typescript";
 
 export interface TransactionAttributes {
   id?: string;
@@ -13,7 +13,7 @@ export interface TransactionAttributes {
   tableName: "transaction",
   timestamps: true,
 })
-export default class Transaction extends Model implements TransactionAttributes {
+export default class Transaction extends Model<Transaction> {
   @PrimaryKey
   @Unique
   @AllowNull(false)

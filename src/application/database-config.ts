@@ -7,5 +7,6 @@ const password = process.env.POSTGRES_PASSWORD ?? 'teste';
 export const sequelize = new Sequelize(databaseName, username, password, {
   host: "database",
   dialect: "postgres",
+  repositoryMode: true,
   models: [ __dirname + "/**/*-model.ts" ]
 });

@@ -1,18 +1,15 @@
+import { sequelize } from "../database-config";
 import Transaction from "../models/transaction-model"
-import { Model } from "sequelize/types"
+import { Repository } from "sequelize-typescript";
 
 export default class TransactionRepository {
-  // private readonly repository: Model;
+  public readonly repository: Repository<Transaction>;
 
-  // constructor() {
-  //   this.repository = Transaction;
-  // }
+  constructor() {
+    this.repository = sequelize.getRepository(Transaction);
+  }
 
   async create(transactionData: object): Promise<object> {
-    const transaction = new Transaction(transactionData);
-
-    await transaction.save();
-
-    return transaction;
+    return this.repository.create(transactionData);
   }
 }
