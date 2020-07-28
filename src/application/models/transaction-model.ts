@@ -14,17 +14,15 @@ export interface TransactionAttributes {
   timestamps: true,
 })
 export default class Transaction extends Model implements TransactionAttributes {
-
   @PrimaryKey
   @Unique
   @AllowNull(false)
-  @Default(v4())
+  @Default(() => { return v4(); })
   @Column(DataType.STRING)
   id?: string;
 
-  @IsFloat
   @AllowNull(false)
-  @Column(DataType.FLOAT)
+  @Column(DataType.DOUBLE)
   valueSpent!: number;
 
   @AllowNull(false)
