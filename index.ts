@@ -14,14 +14,14 @@ app
 
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
-  // sequelize.authenticate()
-  //   .then(async () => {
-  //     console.log("Connected to database");
-  //     await sequelize.sync({ force: true });
-  //   })
-  //   .catch((error: any) => {
-  //     console.log(`--------------------------------- ${error.message}`);
-  //   });
+  sequelize.authenticate()
+    .then(async () => {
+      console.log("Connected to database");
+      await sequelize.sync({ force: true });
+    })
+    .catch((error: any) => {
+      console.log(`--------------------------------- ${error.message}`);
+    });
 });
 
 export default app;
