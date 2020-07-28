@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { Table, Model, PrimaryKey, IsFloat, Column, NotEmpty, Unique, DataType, Default } from "sequelize-typescript";
+import { Table, Model, PrimaryKey, IsFloat, Column, NotEmpty, Unique, DataType, Default, AllowNull } from "sequelize-typescript";
 
 export interface TransactionAttributes {
   id?: string;
@@ -13,32 +13,33 @@ export interface TransactionAttributes {
   tableName: "transaction",
   timestamps: true,
 })
-export class Transaction extends Model implements TransactionAttributes {
+export default class Transaction extends Model implements TransactionAttributes {
 
   @PrimaryKey
   @Unique
-  @Column(DataType.UUIDV4)
+  @AllowNull(false)
   @Default(v4())
+  @Column(DataType.STRING)
   id?: string;
 
   @IsFloat
-  @NotEmpty
+  @AllowNull(false)
   @Column(DataType.FLOAT)
   valueSpent!: number;
 
-  @NotEmpty
+  @AllowNull(false)
   @Column(DataType.TEXT)
   description!: string;
 
-  @NotEmpty
+  @AllowNull(false)
   @Column(DataType.STRING)
   category!: string;
 
-  @NotEmpty
+  @AllowNull(false)
   @Column(DataType.STRING)
   month!: string;
 
-  @NotEmpty
+  @AllowNull(false)
   @Column(DataType.STRING)
   year!: string;
 };
