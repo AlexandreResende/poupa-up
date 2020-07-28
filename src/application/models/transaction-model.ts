@@ -1,14 +1,6 @@
 import { v4 } from "uuid";
 import { Table, Model, PrimaryKey, Column, Unique, DataType, Default, AllowNull } from "sequelize-typescript";
 
-export interface TransactionAttributes {
-  id?: string;
-  valueSpent: number;
-  description: string;
-  category: string;
-  month: string;
-  year: string;
-}
 @Table({
   tableName: "transaction",
   timestamps: true,
