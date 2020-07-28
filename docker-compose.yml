@@ -5,6 +5,8 @@ services:
     build: .
     restart: always
     command: npm start
+    env_file: 
+      - database.env
     volumes:
       - './:/poupa-up'
     ports:
