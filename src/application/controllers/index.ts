@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { GetTransactionsController } from "./get-transactions-controller";
+import GetTransactionsController from "./get-transactions-controller";
 
 export class Routes {
   public routes: Router;

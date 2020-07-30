@@ -13,4 +13,8 @@ export default class TransactionRepository {
   async create(transactionData: TransactionInterface): Promise<TransactionInterface> {
     return this.repository.create(transactionData);
   }
+
+  async findAll(): Promise<TransactionInterface[]> {
+    return this.repository.findAll({ where: {} });
+  }
 }

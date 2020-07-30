@@ -1,18 +1,20 @@
 import { Request, Response } from "express";
-import TransactionRepository from "../repositories/transaction-repository"
+import { EventEmitter } from "events";
+import GetTransactionsCommandFactory from "../containers/get-transactions-command-factory";
+import HttpResponseHandler from "../http-response-handler";
 
-export class GetTransactionsController {
-  async handleRequest(_: Request, res: Response): Promise<object> {
-    const transactionRepository = new TransactionRepository();
+export default class GetTransactionsController {
+  async handleRequest(_: Request, res: Response): Promise<void> {
+    const httpResponseHandler = new HttpResponseHandler(res);
+    const getTransactionsSuccessfully = (transactions: object[]) => {
+      return httpResponseHandler.sendSuccess({ transactions });
+    };
 
-    await transactionRepository.create({
-      description: "nada",
-      month: "02",
-      year: "2020",
-      valueSpent: -20.50,
-      category: "lanche"
-    });
+    const events = new EventEmitter();
+    events.on("getTransactionsSuccessfullyEvent", getTransactionsSuccessfully);
 
-    return res.status(200).send({ data: "Done..." });
+    const command = new GetTransactionsCommandFactory().create(events);
+
+    await command.execute();
   }
 }
