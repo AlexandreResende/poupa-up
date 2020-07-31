@@ -5,9 +5,8 @@ import HttpResponseHandler from "../http-response-handler";
 
 export default class GetTransactionsController {
   async handleRequest(_: Request, res: Response): Promise<void> {
-    const httpResponseHandler = new HttpResponseHandler(res);
-    const getTransactionsSuccessfully = (transactions: object[]) => {
-      return httpResponseHandler.sendSuccess({ transactions });
+    const getTransactionsSuccessfully = async (transactions: object[]): Promise<void> => {
+      return HttpResponseHandler.sendSuccess(res, { transactions });
     };
 
     const events = new EventEmitter();
