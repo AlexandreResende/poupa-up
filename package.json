@@ -5,9 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "tsc && nodemon index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate-undo": "./node_modules/.bin/sequelize db:migrate:undo:all",
-    "migrate": "./node_modules/.bin/sequelize db:migrate"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@types/body-parser": "^1.17.0",
