@@ -11,4 +11,11 @@ export default class HttpResponseHandler {
   public static async sendSuccess(response: Response, data: object): Promise<void> {
     response.status(StatusCodes.OK).send(data);
   }
+
+  public static async sendInternalError(response: Response, error: Error): Promise<void> {
+    response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
+      message: "An internal error occurred",
+      error: error.message
+    });
+  }
 }
