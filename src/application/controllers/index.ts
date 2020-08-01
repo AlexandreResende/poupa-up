@@ -1,5 +1,6 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
 import GetTransactionsController from "./get-transactions-controller";
+import { expressHandler } from "../express-handler";
 
 export class Routes {
   public routes: Router;
@@ -12,7 +13,7 @@ export class Routes {
 
   private configRoutes(): void {
     this.routes
-      .get("/", new GetTransactionsController().handleRequest);
+      .get("/", expressHandler(new GetTransactionsController().handleRequest));
   }
 
   public getRoutes(): Router {
