@@ -13,7 +13,7 @@ export default class CreateTransactionController {
       valueSpent: Type(Number),
       description: Type(String),
       category: Type(String),
-      month: Any(["01", "012", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]),
+      month: Any(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]),
       year: Type(String),
     };
     const result = Validator.validate(schema, transaction);
