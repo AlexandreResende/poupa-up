@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "0338348a-8104-4b69-b054-66e85e035b14",
+		"name": "Poupa-up-ts",
+		"description": "Collection of request for the project Poupa-up developed using Typescript and Postgresql.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"valueSpent\": 88.90,\n\t\"description\": \"Tateno\",\n\t\"category\": \"FOOD\",\n\t\"month\": \"09\",\n\t\"year\": \"2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7777/transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
