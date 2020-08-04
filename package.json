@@ -43,7 +43,7 @@
   },
   "husky": {
     "hooks": {
-      "precommit": "npm test"
+      "precommit": "npm run test"
     }
   },
   "author": "Alexandre Resende",
