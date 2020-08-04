@@ -5,4 +5,6 @@ export interface Transaction {
   category: string;
   month: string;
   year: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
