@@ -46,6 +46,6 @@
       "precommit": "npm test"
     }
   },
-  "author": "",
+  "author": "Alexandre Resende",
   "license": "ISC"
 }
