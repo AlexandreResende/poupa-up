@@ -26,7 +26,6 @@ describe("CreateTransactionCommand", () => {
     let eventEmittedData: Transaction;
     const transaction = TransactionFactory.create();
     const transactionSuccessfullyCreated = (data: Transaction) => {
-      console.log(data);
       eventEmittedData = data;
     };
     

@@ -1,12 +1,12 @@
 import { BaseCommandInterface } from "./base-command-interface";
 import { EventEmitter } from "events";
-import TransactionRepository from "../../application/repositories/transaction-repository";
+import TransactionRepositoryInterface from "../../application/interfaces/repository-interfaces/transaction-repository-interface";
 
 export class GetTransactionsCommand implements BaseCommandInterface {
   private readonly events: EventEmitter;
-  private readonly transactionRepository: TransactionRepository;
+  private readonly transactionRepository: TransactionRepositoryInterface;
 
-  constructor(events: EventEmitter, transactionRepository: TransactionRepository) {
+  constructor(events: EventEmitter, transactionRepository: TransactionRepositoryInterface) {
     this.events = events;
     this.transactionRepository = transactionRepository;
   }
