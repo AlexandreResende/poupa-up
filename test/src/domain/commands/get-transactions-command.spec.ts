@@ -39,4 +39,28 @@ describe("GetTransactionsCommand", () => {
     // then
     expect(eventEmittedData!.length).to.be.equal(expectedTransactionsLength);
   });
+
+  it("returns an array with length equals two when there is no transactions registered", async () => {
+    // given
+    let eventEmittedData: Transaction[];
+    const expectedTransactionsLength = 2;
+    const maxTransactionsToBeCreated = 2;
+    const getTransactionsSuccessfullyEvent = (data: Transaction[]) => {
+      eventEmittedData = data
+    };
+
+    for (let counter = 0; counter < maxTransactionsToBeCreated; counter++) {
+      await transactionRepository.create(TransactionFactory.create());
+    }
+
+    const events = new EventEmitter();
+    events.on("getTransactionsSuccessfullyEvent", getTransactionsSuccessfullyEvent);
+
+    // when
+    const command = createCommand(events, transactionRepository);
+    await command.execute();
+
+    // then
+    expect(eventEmittedData!.length).to.be.equal(expectedTransactionsLength);
+  });
 });
