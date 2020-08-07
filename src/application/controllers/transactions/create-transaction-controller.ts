@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { EventEmitter } from "events";
 import { Type, Any } from "validate-typescript";
-import Validator from "../validator";
-import HttpResponseHandler from "../http-response-handler";
-import { Transaction as TransactionInterface } from "../interfaces/transaction-interface";
-import CreateTransactionCommandFactory from "../containers/create-transaction-command-factory";
+import Validator from "../../validator";
+import HttpResponseHandler from "../../http-response-handler";
+import { Transaction as TransactionInterface } from "../../interfaces/transaction-interface";
+import CreateTransactionCommandFactory from "../../containers/create-transaction-command-factory";
 
 export default class CreateTransactionController {
   async handleRequest (req: Request, res: Response): Promise<void> {

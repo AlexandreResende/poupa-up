@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
-import { Transaction as TransactionInterface } from "../../application/interfaces/transaction-interface";
-import TransactionRepositoryInterface from "../../application/interfaces/repository-interfaces/transaction-repository-interface";
+import { Transaction as TransactionInterface } from "../../../application/interfaces/transaction-interface";
+import TransactionRepositoryInterface from "../../../application/interfaces/repository-interfaces/transaction-repository-interface";
 
 export default class CreateTransactionCommand {
   private readonly events: EventEmitter;

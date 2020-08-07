@@ -1,5 +1,5 @@
 import TransactionRepository from "../repositories/transaction-repository";
-import { GetTransactionsCommand } from "../../domain/commands/get-transactions-command";
+import { GetTransactionsCommand } from "../../domain/commands/transactions/get-transactions-command";
 import { EventEmitter } from "events";
 
 export default class GetTransactionsCommandFactory {
