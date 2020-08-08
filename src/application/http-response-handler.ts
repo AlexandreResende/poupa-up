@@ -8,7 +8,7 @@ export default class HttpResponseHandler {
     this.response = response;
   }
 
-  public static sendSuccess(response: Response, data: object): void {
+  public static sendSuccess(response: Response, data?: {}): void {
     response.status(StatusCodes.OK).send(data);
   }
 
