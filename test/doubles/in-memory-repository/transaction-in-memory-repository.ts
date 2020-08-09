@@ -22,18 +22,21 @@ export default class TransactionInMemoryRepository implements TransactionReposit
     return this.transaction;
   }
 
-  async update(updateTransactionData: UpdateTransactionInterface): Promise<void> {
-    const { id, ...rest } = updateTransactionData;
+  async update(id: string, updateTransactionData: UpdateTransactionInterface): Promise<{ updated: number }> {
     const transactionIndex = this.transaction.findIndex((transaction) => transaction.id === id);
+
+    if (transactionIndex === -1) {
+      return { updated: 0 };
+    }
 
     const updatedTransaction = {
       ...this.transaction[transactionIndex],
-      ...rest,
+      ...updateTransactionData,
     };
 
     this.transaction.splice(transactionIndex, 1, updatedTransaction);
 
-    return;
+    return { updated: 1 };
   }
 
   async destroy(): Promise<void> {

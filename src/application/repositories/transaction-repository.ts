@@ -20,11 +20,9 @@ export default class TransactionRepository implements TransactionRepositoryInter
     return this.repository.findAll({ where: {} });
   }
 
-  async update(updateTransactionData: UpdateTransactionInterface): Promise<void> {
-    const { id, ...rest } = updateTransactionData;
-    
-    await this.repository.update(rest, { where: { id } });
+  async update(id: string, updateTransactionData: UpdateTransactionInterface): Promise<{ updated: number }> {
+    const [ valuesUpdated ] = await this.repository.update(updateTransactionData, { where: { id } });
 
-    return;
+    return { updated: valuesUpdated };
   }
 }

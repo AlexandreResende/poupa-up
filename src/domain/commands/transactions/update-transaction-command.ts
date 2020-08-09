@@ -11,9 +11,9 @@ export default class UpdateTransactionCommand {
     this.transactionRepository = transactionRepository;
   }
 
-  async execute(updateTransactionData: UpdateTransactionInterface): Promise<void> {
-    await this.transactionRepository.update(updateTransactionData);
+  async execute(id: string, updateTransactionData: UpdateTransactionInterface): Promise<void> {
+    const updateResult = await this.transactionRepository.update(id, updateTransactionData);
 
-    this.events.emit("updatedTransactionSuccessfullyEvent");
+    this.events.emit("updatedTransactionSuccessfullyEvent", updateResult);
   }
 }

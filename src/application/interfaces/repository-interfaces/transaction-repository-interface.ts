@@ -4,5 +4,5 @@ import UpdateTransactionInterface from "../update-transaction-interface";
 export default interface TransactionRepositoryInterface {
   create(transaction: Transaction): Promise<Transaction>;
   findAll(): Promise<Transaction[]>;
-  update(updatedTransaction: UpdateTransactionInterface): Promise<void>;
+  update(id: string, updatedTransaction: UpdateTransactionInterface): Promise<{ updated: number }>;
 }

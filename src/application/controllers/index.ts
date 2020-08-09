@@ -17,7 +17,7 @@ export class Routes {
     this.routes
       .get("/transaction", expressHandler(new GetTransactionsController().handleRequest))
       .post("/transaction", expressHandler(new CreateTransactionController().handleRequest))
-      .put("/transaction", expressHandler(new UpdateTransactionController().handleRequest));
+      .put("/transaction/:id", expressHandler(new UpdateTransactionController().handleRequest));
   }
 
   public getRoutes(): Router {

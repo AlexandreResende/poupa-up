@@ -8,17 +8,17 @@ import UpdateTransactionCommandFactory from "../../containers/transactions/updat
 
 export default class UpdateTransactionController {
   async handleRequest(req: Request, res: Response): Promise<void> {
+    const id = req.params.id;
     const updatedData = req.body;
     const schema = {
-      id: Type(String),
       valueSpent: Optional(Type(Number)),
       description: Optional(Type(String)),
       category: Optional(Type(String)),
       month: Optional(Any(months)),
       year: Optional(Type(String))
     };
-    const updatedTransactionSuccessfully = () => {
-      return HttpResponseHandler.sendSuccess(res);
+    const updatedTransactionSuccessfully = (data: object) => {
+      return HttpResponseHandler.sendSuccess(res, data);
     };
     const result = Validator.validate(schema, updatedData);
 
@@ -30,6 +30,6 @@ export default class UpdateTransactionController {
     events.on("updatedTransactionSuccessfullyEvent", updatedTransactionSuccessfully);
 
     const command = new UpdateTransactionCommandFactory().create(events);
-    await command.execute(updatedData);
+    await command.execute(id, updatedData);
   }
 }
