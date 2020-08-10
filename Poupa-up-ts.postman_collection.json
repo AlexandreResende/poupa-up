@@ -32,6 +32,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Update transaction",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"some blabla here\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7777/transaction/21ad0a0a-7829-403d-b66a-51fac9e40820",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"transaction",
+						"21ad0a0a-7829-403d-b66a-51fac9e40820"
+					]
+				},
+				"description": "Given a transaction id update its data based on request body"
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
