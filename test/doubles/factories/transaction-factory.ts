@@ -5,7 +5,7 @@ import months from "../../../src/common/month-representation";
 export default class TransactionFactory {
   public static create(fields = {}): Transaction {
     return {
-      valueSpent: fakerStatic.random.number({ min: 1, max: 50 }),
+      value: fakerStatic.random.number({ min: 1, max: 50 }),
       description: fakerStatic.random.words(),
       category: fakerStatic.random.word(),
       month: fakerStatic.random.arrayElement(months),

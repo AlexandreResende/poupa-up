@@ -33,7 +33,7 @@ describe("UpdateTransactionCommand", () => {
 
     const { id } = await transactionRepository.create(transaction);
     const updateTransactionData = {
-      valueSpent: fakerStatic.random.number({ min: 1, max: 50 }),
+      value: fakerStatic.random.number({ min: 1, max: 50 }),
       description: fakerStatic.random.word(),
     };
 

@@ -11,7 +11,7 @@ export default class UpdateTransactionController {
     const id = req.params.id;
     const updatedData = req.body;
     const schema = {
-      valueSpent: Optional(Type(Number)),
+      value: Optional(Type(Number)),
       description: Optional(Type(String)),
       category: Optional(Type(String)),
       month: Optional(Any(months)),

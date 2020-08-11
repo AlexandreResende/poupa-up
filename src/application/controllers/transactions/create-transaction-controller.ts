@@ -11,7 +11,7 @@ export default class CreateTransactionController {
   async handleRequest (req: Request, res: Response): Promise<void> {
     const transaction = req.body;
     const schema = {
-      valueSpent: Type(Number),
+      value: Type(Number),
       description: Type(String),
       category: Type(String),
       month: Any(months),

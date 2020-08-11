@@ -15,7 +15,7 @@ export default class Transaction extends Model<Transaction> {
 
   @AllowNull(false)
   @Column(DataType.DOUBLE)
-  valueSpent!: number;
+  value!: number;
 
   @AllowNull(false)
   @Column(DataType.TEXT)

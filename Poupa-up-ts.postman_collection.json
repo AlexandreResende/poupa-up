@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"valueSpent\": 88.90,\n\t\"description\": \"Tateno\",\n\t\"category\": \"FOOD\",\n\t\"month\": \"09\",\n\t\"year\": \"2020\"\n}",
+					"raw": "{\n\t\"value\": 88.90,\n\t\"description\": \"Tateno\",\n\t\"category\": \"FOOD\",\n\t\"month\": \"09\",\n\t\"year\": \"2020\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

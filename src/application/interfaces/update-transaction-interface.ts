@@ -1,5 +1,5 @@
 export default interface UpdateTransactionInterface {
-  valueSpent?: number;
+  value?: number;
   description?: string;
   category?: string;
   month?: string;
