@@ -39,6 +39,18 @@ export default class TransactionInMemoryRepository implements TransactionReposit
     return { updated: 1 };
   }
 
+  async remove(id: string): Promise<{ removed: number }> {
+    const transactionIndex = this.transaction.findIndex(transaction => transaction.id === id);
+
+    if (transactionIndex === -1) {
+      return { removed: 0 };
+    }
+
+    this.transaction.splice(transactionIndex, 1);
+
+    return { removed: 1 };
+  }
+
   async destroy(): Promise<void> {
     this.transaction = [];
   }

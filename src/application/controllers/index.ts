@@ -3,6 +3,7 @@ import { expressHandler } from "../express-handler";
 import GetTransactionsController from "./transactions/get-transactions-controller";
 import CreateTransactionController from "./transactions/create-transaction-controller";
 import UpdateTransactionController from "./transactions/update-transaction-controller";
+import DeleteTransactionController from "./transactions/delete-transaction-controller";
 
 export class Routes {
   public routes: Router;
@@ -17,7 +18,8 @@ export class Routes {
     this.routes
       .get("/transaction", expressHandler(new GetTransactionsController().handleRequest))
       .post("/transaction", expressHandler(new CreateTransactionController().handleRequest))
-      .put("/transaction/:id", expressHandler(new UpdateTransactionController().handleRequest));
+      .put("/transaction/:id", expressHandler(new UpdateTransactionController().handleRequest))
+      .delete("/transaction/:id", expressHandler(new DeleteTransactionController().handleRequest));
   }
 
   public getRoutes(): Router {

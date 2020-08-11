@@ -25,4 +25,10 @@ export default class TransactionRepository implements TransactionRepositoryInter
 
     return { updated: valuesUpdated };
   }
+
+  async remove(id: string): Promise<{ removed: number}> {
+    const valuesRemoved = await this.repository.destroy({ where: { id } });
+
+    return { removed: valuesRemoved };
+  }
 }
