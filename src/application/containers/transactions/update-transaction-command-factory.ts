@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import TransactionRepository from "../../repositories/transaction-repository";
+import TransactionRepository from "../../../domain/repositories/transaction-repository";
 import UpdateTransactionCommand from "../../../domain/commands/transactions/update-transaction-command";
 
 export default class UpdateTransactionCommandFactory {

@@ -1,4 +1,4 @@
-import TransactionRepository from "../repositories/transaction-repository";
+import TransactionRepository from "../../domain/repositories/transaction-repository";
 import { GetTransactionsCommand } from "../../domain/commands/transactions/get-transactions-command";
 import { EventEmitter } from "events";
 
