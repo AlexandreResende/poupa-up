@@ -4,7 +4,7 @@ import { Type, Any } from "validate-typescript";
 import Validator from "../../validator";
 import HttpResponseHandler from "../../http-response-handler";
 import { Transaction as TransactionInterface } from "../../interfaces/transaction-interface";
-import CreateTransactionCommandFactory from "../../containers/create-transaction-command-factory";
+import CreateTransactionCommandFactory from "../../containers/transactions/create-transaction-command-factory";
 import months from "../../../common/month-representation"
 
 export default class CreateTransactionController {

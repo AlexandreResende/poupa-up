@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { EventEmitter } from "events";
-import GetTransactionsCommandFactory from "../../containers/get-transactions-command-factory";
+import GetTransactionsCommandFactory from "../../containers/transactions/get-transactions-command-factory";
 import HttpResponseHandler from "../../http-response-handler";
 
 export default class GetTransactionsController {
