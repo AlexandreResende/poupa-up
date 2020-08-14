@@ -1,7 +1,8 @@
 import { EventEmitter } from "events";
 import TransactionRepositoryInterface from "../../../application/interfaces/repository-interfaces/transaction-repository-interface";
+import { BaseCommandInterface } from "../base-command-interface";
 
-export default class DeleteTransactionCommand {
+export default class DeleteTransactionCommand implements BaseCommandInterface {
   private readonly events: EventEmitter;
   private readonly transactionRepository: TransactionRepositoryInterface;
   
@@ -10,7 +11,8 @@ export default class DeleteTransactionCommand {
     this.transactionRepository = transactionRepository;
   }
 
-  async execute(id: string) {
+  async execute(params: { id: string }) {
+    const { id } = params;
     const result = await this.transactionRepository.remove(id);
 
     this.events.emit("transactionRemovedSuccessfullyEvent", result);

@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { EventEmitter } from "events";
 import HttpResponseHandler from "../../http-response-handler";
-import DeleteTransactionCommandFactory from "../../containers/transactions/delete-transaction-command-factory";
+import Container from "../../containers/container";
 
 export default class DeleteTransactionController {
   async handleRequest(req: Request, res: Response) {
@@ -13,7 +13,8 @@ export default class DeleteTransactionController {
     const events = new EventEmitter();
     events.on("transactionRemovedSuccessfullyEvent", transactionRemovedSuccessfully);
 
-    const command = new DeleteTransactionCommandFactory().create(events);
-    await command.execute(id);
+    const command = Container.resolve("deleteTransactionCommand", events);
+
+    await command.execute({ id });
   }
 }

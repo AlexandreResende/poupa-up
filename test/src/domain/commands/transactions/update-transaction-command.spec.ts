@@ -32,6 +32,7 @@ describe("UpdateTransactionCommand", () => {
     };
 
     const { id } = await transactionRepository.create(transaction);
+    const transactionId = id ?? v4();
     const updateTransactionData = {
       value: fakerStatic.random.number({ min: 1, max: 50 }),
       description: fakerStatic.random.word(),
@@ -42,7 +43,7 @@ describe("UpdateTransactionCommand", () => {
 
     //when
     const command = createCommand(events, transactionRepository);
-    await command.execute(id!, updateTransactionData);
+    await command.execute({ id: transactionId, updateTransactionData });
 
     //then
     expect(eventEmittedData!.updated).to.be.equal(expectedUpdatedValues);
@@ -65,7 +66,7 @@ describe("UpdateTransactionCommand", () => {
 
     //when
     const command = createCommand(events, transactionRepository);
-    await command.execute(id, updateTransactionData);
+    await command.execute({ id, updateTransactionData });
 
     //then
     expect(eventEmittedData!.updated).to.be.equal(expectedUpdatedValues);

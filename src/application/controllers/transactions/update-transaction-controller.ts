@@ -4,12 +4,12 @@ import { Type, Any, Optional } from "validate-typescript";
 import months from "../../../common/month-representation"
 import HttpResponseHandler from "../../http-response-handler";
 import { EventEmitter } from "events";
-import UpdateTransactionCommandFactory from "../../containers/transactions/update-transaction-command-factory";
+import Container from "../../containers/container";
 
 export default class UpdateTransactionController {
   async handleRequest(req: Request, res: Response): Promise<void> {
     const id = req.params.id;
-    const updatedData = req.body;
+    const updateTransactionData = req.body;
     const schema = {
       value: Optional(Type(Number)),
       description: Optional(Type(String)),
@@ -20,7 +20,7 @@ export default class UpdateTransactionController {
     const updatedTransactionSuccessfully = (data: object) => {
       return HttpResponseHandler.sendSuccess(res, data);
     };
-    const result = Validator.validate(schema, updatedData);
+    const result = Validator.validate(schema, updateTransactionData);
 
     if (result.isValid !== true) {
       return HttpResponseHandler.sendBadRequest(res, result);
@@ -29,7 +29,7 @@ export default class UpdateTransactionController {
     const events = new EventEmitter();
     events.on("updatedTransactionSuccessfullyEvent", updatedTransactionSuccessfully);
 
-    const command = new UpdateTransactionCommandFactory().create(events);
-    await command.execute(id, updatedData);
+    const command = Container.resolve("updateTransactionCommand", events);
+    await command.execute({ id, updateTransactionData });
   }
 }

@@ -4,8 +4,8 @@ import { Type, Any } from "validate-typescript";
 import Validator from "../../validator";
 import HttpResponseHandler from "../../http-response-handler";
 import { Transaction as TransactionInterface } from "../../interfaces/transaction-interface";
-import CreateTransactionCommandFactory from "../../containers/transactions/create-transaction-command-factory";
-import months from "../../../common/month-representation"
+import Container from "../../containers/container";
+import months from "../../../common/month-representation";
 
 export default class CreateTransactionController {
   async handleRequest (req: Request, res: Response): Promise<void> {
@@ -30,7 +30,8 @@ export default class CreateTransactionController {
     const events = new EventEmitter();
     events.on("transactionSuccessfullyCreatedEvent", transactionSuccessfullyCreated);
 
-    const command = new CreateTransactionCommandFactory().create(events);
+    const command = Container.resolve("createTransactionCommand", events);
+
     await command.execute(transaction);
   }
 }
