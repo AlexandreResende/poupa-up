@@ -11,7 +11,7 @@ export default class Transaction extends Model<Transaction> {
   @AllowNull(false)
   @Default(() => { return v4(); })
   @Column(DataType.STRING)
-  id?: string;
+  id!: string;
 
   @AllowNull(false)
   @Column(DataType.DOUBLE)

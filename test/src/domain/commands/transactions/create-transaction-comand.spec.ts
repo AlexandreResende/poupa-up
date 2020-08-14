@@ -3,7 +3,7 @@ import TransactionInMemoryRepository from "../../../../doubles/in-memory-reposit
 import CreateTransactionCommand from "../../../../../src/domain/commands/transactions/create-transaction-command";
 import TransactionRepositoryInterface from "../../../../../src/application/interfaces/repository-interfaces/transaction-repository-interface"
 import TransactionFactory from "../../../../doubles/factories/transaction-factory";
-import { Transaction } from "../../../../../src/application/interfaces/transaction-interface"
+import { Transaction, TransactionRepositoryDataInterface } from "../../../../../src/application/interfaces/transaction-interface"
 
 const { expect } = require("chai");
 
@@ -23,12 +23,12 @@ describe("CreateTransactionCommand", () => {
 
   it("publish the transactionSuccessfullyCreatedEvent when transaction is created", async () => {
     // given
-    let eventEmittedData: Transaction;
+    let eventEmittedData: TransactionRepositoryDataInterface;
     const transaction = TransactionFactory.create();
-    const transactionSuccessfullyCreated = (data: Transaction) => {
+    const transactionSuccessfullyCreated = (data: TransactionRepositoryDataInterface) => {
       eventEmittedData = data;
     };
-    
+
     const events = new EventEmitter();
     events.on("transactionSuccessfullyCreatedEvent",  transactionSuccessfullyCreated);
 

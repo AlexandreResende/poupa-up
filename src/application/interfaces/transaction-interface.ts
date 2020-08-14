@@ -1,5 +1,4 @@
 export interface Transaction {
-  id?: string;
   value: number;
   description: string;
   category: string;
@@ -7,4 +6,8 @@ export interface Transaction {
   year: string;
   createdAt?: string;
   updatedAt?: string;
+}
+
+export interface TransactionRepositoryDataInterface extends Transaction {
+  id: string;
 }

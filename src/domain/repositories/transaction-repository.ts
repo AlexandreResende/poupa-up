@@ -1,7 +1,7 @@
 import { sequelize } from "../../application/database-config";
 import Transaction from "../../application/models/transaction-model"
 import { Repository } from "sequelize-typescript";
-import { Transaction as TransactionInterface } from "../../application/interfaces/transaction-interface";
+import { Transaction as TransactionInterface, TransactionRepositoryDataInterface } from "../../application/interfaces/transaction-interface";
 import TransactionRepositoryInterface from "../../application/interfaces/repository-interfaces/transaction-repository-interface"
 import UpdateTransactionInterface from "../../application/interfaces/update-transaction-interface";
 
@@ -12,11 +12,11 @@ export default class TransactionRepository implements TransactionRepositoryInter
     this.repository = sequelize.getRepository(Transaction);
   }
 
-  async create(transactionData: TransactionInterface): Promise<TransactionInterface> {
+  async create(transactionData: TransactionInterface): Promise<TransactionRepositoryDataInterface> {
     return this.repository.create(transactionData);
   }
 
-  async findAll(): Promise<TransactionInterface[]> {
+  async findAll(): Promise<TransactionRepositoryDataInterface[]> {
     return this.repository.findAll({ where: {} });
   }
 
