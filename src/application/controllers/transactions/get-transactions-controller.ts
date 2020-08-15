@@ -13,7 +13,7 @@ export default class GetTransactionsController {
     const events = new EventEmitter();
     events.on("getTransactionsSuccessfullyEvent", getTransactionsSuccessfully);
 
-    const command = Container.resolve("getTransactionsComand", events);
+    const command = Container.resolve("getTransactionsCommand", events);
 
     await command.execute();
   }
