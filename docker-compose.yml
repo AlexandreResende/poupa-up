@@ -5,22 +5,22 @@ services:
     build: .
     restart: always
     command: npm start
-    env_file: 
+    env_file:
       - database.env
     volumes:
       - './:/poupa-up'
     ports:
       - "7777:7777"
     environment:
-      NODE_ENV: "development"
+      NODE_ENV: "testing"
 
   database:
     image: postgres
-    env_file: 
+    env_file:
       - database.env
     volumes:
       - database:/var/lib/postgresql/data
-    ports: 
+    ports:
       - 5432:5432
 
 volumes:
