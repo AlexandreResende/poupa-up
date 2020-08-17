@@ -1,0 +1,10 @@
+{
+  "all": true,
+  "include": [
+    "**"
+  ],
+  "extension": [
+    ".ts"
+  ],
+  "skip-full": false
+}
