@@ -13,6 +13,8 @@ services:
       - "7777:7777"
     environment:
       NODE_ENV: "testing"
+    depends_on:
+      - database
 
   database:
     image: postgres
