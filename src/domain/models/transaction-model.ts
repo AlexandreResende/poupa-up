@@ -32,4 +32,8 @@ export default class Transaction extends Model<Transaction> {
   @AllowNull(false)
   @Column(DataType.STRING)
   year!: string;
+
+  @AllowNull(false)
+  @Column(DataType.STRING)
+  name!: string;
 };

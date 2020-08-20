@@ -1,5 +1,9 @@
 import { Sequelize } from "sequelize-typescript";
 
+console.log();
+console.log( __dirname );
+console.log();
+
 export const sequelize = new Sequelize({
   database: process.env.POSTGRES_DB ?? "poupaup",
   username: process.env.POSTGRES_USER ?? "poupaup",
@@ -7,5 +11,5 @@ export const sequelize = new Sequelize({
   host: "database",
   dialect: "postgres",
   repositoryMode: true,
-  models: [ __dirname + "/**/*-model.ts" ]
+  models: [ __dirname + "/domain/**/*-model.ts" ]
 });

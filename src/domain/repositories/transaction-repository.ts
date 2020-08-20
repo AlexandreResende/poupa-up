@@ -1,5 +1,5 @@
-import { sequelize } from "../../application/database-config";
-import Transaction from "../../application/models/transaction-model"
+import { sequelize } from "../../database-config";
+import Transaction from "../../domain/models/transaction-model"
 import { Repository } from "sequelize-typescript";
 import { Transaction as TransactionInterface, TransactionRepositoryDataInterface } from "../../application/interfaces/transaction-interface";
 import TransactionRepositoryInterface from "../../application/interfaces/repository-interfaces/transaction-repository-interface"
