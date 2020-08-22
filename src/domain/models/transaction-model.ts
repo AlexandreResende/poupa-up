@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { Table, Model, PrimaryKey, Column, Unique, DataType, Default, AllowNull } from "sequelize-typescript";
+import { Table, Model, PrimaryKey, Column, Unique, DataType, Default, AllowNull, Index } from "sequelize-typescript";
 
 @Table({
   tableName: "transaction",
@@ -10,7 +10,7 @@ export default class Transaction extends Model<Transaction> {
   @Unique
   @AllowNull(false)
   @Default(() => { return v4(); })
-  @Column(DataType.STRING)
+  @Column(DataType.UUID)
   id!: string;
 
   @AllowNull(false)
@@ -27,13 +27,11 @@ export default class Transaction extends Model<Transaction> {
 
   @AllowNull(false)
   @Column(DataType.STRING)
+  @Index
   month!: string;
 
   @AllowNull(false)
   @Column(DataType.STRING)
+  @Index
   year!: string;
-
-  @AllowNull(false)
-  @Column(DataType.STRING)
-  name!: string;
 };
