@@ -1,5 +1,6 @@
 import { v4 } from "uuid";
-import { Table, Model, PrimaryKey, Column, Unique, DataType, Default, AllowNull, IsEmail, Index } from "sequelize-typescript";
+import { Table, Model, PrimaryKey, Column, Unique, DataType, Default, AllowNull, IsEmail, Index, HasMany } from "sequelize-typescript";
+import Transaction from "./transaction-model";
 
 @Table({
   tableName: "user",
@@ -26,4 +27,7 @@ export default class User extends Model<User> {
   @AllowNull(false)
   @Column(DataType.STRING)
   fullName!: string;
+
+  @HasMany(() => Transaction)
+  transactions!: Transaction[]
 };

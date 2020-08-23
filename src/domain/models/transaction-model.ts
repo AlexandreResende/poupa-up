@@ -1,5 +1,19 @@
 import { v4 } from "uuid";
-import { Table, Model, PrimaryKey, Column, Unique, DataType, Default, AllowNull, Index } from "sequelize-typescript";
+import {
+  Table,
+  Model,
+  PrimaryKey,
+  Column,
+  Unique,
+  DataType,
+  Default,
+  AllowNull,
+  Index,
+  ForeignKey,
+  BelongsTo,
+  HasOne
+} from "sequelize-typescript";
+import User from "./user-model";
 
 @Table({
   tableName: "transaction",
@@ -12,6 +26,12 @@ export default class Transaction extends Model<Transaction> {
   @Default(() => { return v4(); })
   @Column(DataType.UUID)
   id!: string;
+
+  @AllowNull(false)
+  @ForeignKey(() => User)
+  @Index
+  @Column(DataType.UUID)
+  userId!: string;
 
   @AllowNull(false)
   @Column(DataType.DOUBLE)
