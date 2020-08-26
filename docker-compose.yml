@@ -7,6 +7,7 @@ services:
     command: npm start
     env_file:
       - database.env
+      - vars.env
     volumes:
       - './:/poupa-up'
     ports:
