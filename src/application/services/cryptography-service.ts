@@ -5,18 +5,18 @@ export default class CryptographyService {
   private readonly password:string = process.env.CRYPTO_PASSWORD ?? "";
 
   public encrypt(word: string): string {
-    let mykey: Cipher = createCipher(this.algorithm, this.password);
-    let mystr = mykey.update(word, "utf8", "hex")
-    mystr += mykey.final("hex");
+    let encryptionKey: Cipher = createCipher(this.algorithm, this.password);
+    let encryptedString = encryptionKey.update(word, "utf8", "hex")
+    encryptedString += encryptionKey.final("hex");
 
-    return mystr;
+    return encryptedString;
   }
 
   public decrypt(encryptedWord: string): string {
-    let mykey = createDecipher(this.algorithm, this.password);
-    let mystr = mykey.update(encryptedWord, "hex", "utf8");
-    mystr += mykey.final("utf8");
+    let decryptionKey = createDecipher(this.algorithm, this.password);
+    let decryptedString = decryptionKey.update(encryptedWord, "hex", "utf8");
+    decryptedString += decryptionKey.final("utf8");
 
-    return mystr;
+    return decryptedString;
   }
 }
