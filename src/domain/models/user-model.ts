@@ -12,13 +12,13 @@ import {
   Index,
   HasMany
 } from "sequelize-typescript";
-import { Transaction } from "./transaction-model";
+import TransactionModel from "./transaction-model";
 
 @Table({
   tableName: "user",
   timestamps: true,
 })
-export default class User extends Model<User> {
+export default class UserModel extends Model<UserModel> {
   @PrimaryKey
   @Unique
   @AllowNull(false)
@@ -40,8 +40,8 @@ export default class User extends Model<User> {
   @Column(DataType.STRING)
   fullName!: string;
 
-  @HasMany(() => Transaction)
-  transactions!: Transaction[]
+  @HasMany(() => TransactionModel)
+  transactions!: TransactionModel[]
 
   @AllowNull(false)
   @Column(DataType.STRING)

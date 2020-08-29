@@ -13,13 +13,13 @@ import {
   BelongsTo,
   HasOne
 } from "sequelize-typescript";
-import User from "./user-model";
+import UserModel from "./user-model";
 
 @Table({
   tableName: "transaction",
   timestamps: true,
 })
-export class Transaction extends Model<Transaction> {
+export default class TransactionModel extends Model<TransactionModel> {
   @PrimaryKey
   @Unique
   @AllowNull(false)
@@ -28,7 +28,7 @@ export class Transaction extends Model<Transaction> {
   id!: string;
 
   @AllowNull(false)
-  @ForeignKey(() => User)
+  @ForeignKey(() => UserModel)
   @Index
   @Column(DataType.UUID)
   userId!: string;
