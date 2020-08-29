@@ -11,4 +11,6 @@ export interface User {
 
 export interface UserRepositoryDataInterface extends User {
   id: string;
+  createdAt: string;
+  updatedAt: string;
 }
