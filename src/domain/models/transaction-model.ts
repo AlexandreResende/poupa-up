@@ -19,7 +19,7 @@ import User from "./user-model";
   tableName: "transaction",
   timestamps: true,
 })
-export default class Transaction extends Model<Transaction> {
+export class Transaction extends Model<Transaction> {
   @PrimaryKey
   @Unique
   @AllowNull(false)
@@ -54,4 +54,12 @@ export default class Transaction extends Model<Transaction> {
   @Column(DataType.STRING)
   @Index
   year!: string;
+
+  @AllowNull(false)
+  @Column(DataType.STRING)
+  createdAt!: string;
+
+  @AllowNull(false)
+  @Column(DataType.STRING)
+  updatedAt!: string;
 };
