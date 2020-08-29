@@ -1,6 +1,5 @@
 import Transaction from "../../domain/entities/transaction-entity";
 import {
-  Transaction as TransactionInterface,
   TransactionRepositoryDataInterface as TransactionRepositoryInterface
 } from "../../application/interfaces/transaction-interface";
 
