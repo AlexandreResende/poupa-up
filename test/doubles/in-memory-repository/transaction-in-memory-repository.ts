@@ -1,6 +1,7 @@
 import TransactionRepositoryInterface from "../../../src/application/interfaces/repository-interfaces/transaction-repository-interface";
 import UpdateTransactionInterface from "../../../src/application/interfaces/update-transaction-interface";
 import { Transaction, TransactionRepositoryDataInterface } from "../../../src/application/interfaces/transaction-interface";
+import { fromDatabase } from "../../../src/application/mapper/transaction-mapper";
 import { v4 } from "uuid";
 
 export default class TransactionInMemoryRepository implements TransactionRepositoryInterface {
@@ -11,11 +12,16 @@ export default class TransactionInMemoryRepository implements TransactionReposit
   }
 
   async create(transaction: Transaction): Promise<TransactionRepositoryDataInterface> {
-    const newTransaction = { ...transaction, id: v4() };
+    const newTransaction = {
+      ...transaction,
+      id: v4(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
 
     this.transaction.push(newTransaction);
 
-    return newTransaction;
+    return fromDatabase(newTransaction);
   }
 
   async findAll(): Promise<TransactionRepositoryDataInterface[]> {
