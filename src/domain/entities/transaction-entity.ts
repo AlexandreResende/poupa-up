@@ -1,14 +1,14 @@
 import { TransactionRepositoryDataInterface as TransactionInterface } from "../../application/interfaces/transaction-interface";
 
 export default class Transaction {
-  public readonly id: String;
-  public readonly value: Number;
-  public readonly description: String;
-  public readonly category: String;
-  public readonly month: String;
-  public readonly year: String;
-  public readonly createdAt: String;
-  public readonly updatedAt: String;
+  public readonly id: string;
+  public readonly value: number;
+  public readonly description: string;
+  public readonly category: string;
+  public readonly month: string;
+  public readonly year: string;
+  public readonly createdAt: string;
+  public readonly updatedAt: string;
 
   constructor(transaction: TransactionInterface) {
     this.id = transaction.id;
@@ -17,7 +17,7 @@ export default class Transaction {
     this.category = transaction.category;
     this.month = transaction.month;
     this.year = transaction.year;
-    this.createdAt = transaction.createdAt ?? "";
-    this.updatedAt = transaction.updatedAt ?? "";
+    this.createdAt = transaction.createdAt;
+    this.updatedAt = transaction.updatedAt;
   }
 }
