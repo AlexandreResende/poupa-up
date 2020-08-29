@@ -1,23 +1,25 @@
 import { sequelize } from "../../database-config";
-import Transaction from "../../domain/models/transaction-model"
+import TransactionModel from "../../domain/models/transaction-model"
 import { Repository } from "sequelize-typescript";
-import { Transaction as TransactionInterface, TransactionRepositoryDataInterface } from "../../application/interfaces/transaction-interface";
+import { Transaction as TransactionInterface } from "../../application/interfaces/transaction-interface";
 import TransactionRepositoryInterface from "../../application/interfaces/repository-interfaces/transaction-repository-interface"
 import UpdateTransactionInterface from "../../application/interfaces/update-transaction-interface";
+import { fromDatabase } from "../../application/mapper/transaction-mapper";
+import Transaction from "../entities/transaction-entity";
 
 export default class TransactionRepository implements TransactionRepositoryInterface{
-  public readonly repository: Repository<Transaction>;
+  public readonly repository: Repository<TransactionModel>;
 
   constructor() {
-    this.repository = sequelize.getRepository(Transaction);
+    this.repository = sequelize.getRepository(TransactionModel);
   }
 
-  async create(transactionData: TransactionInterface): Promise<TransactionRepositoryDataInterface> {
-    return this.repository.create(transactionData);
+  async create(transactionData: TransactionInterface): Promise<Transaction> {
+    return fromDatabase(await this.repository.create(transactionData));
   }
 
-  async findAll(): Promise<TransactionRepositoryDataInterface[]> {
-    return this.repository.findAll({ where: {} });
+  async findAll(): Promise<Transaction[]> {
+    return this.repository.findAll({ where: {} }).map(fromDatabase);
   }
 
   async update(id: string, updateTransactionData: UpdateTransactionInterface): Promise<{ updated: number }> {
