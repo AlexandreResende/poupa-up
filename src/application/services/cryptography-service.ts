@@ -6,17 +6,17 @@ export default class CryptographyService {
 
   public encrypt(word: string): string {
     let encryptionKey: Cipher = createCipher(this.algorithm, this.password);
-    let encryptedString = encryptionKey.update(word, "utf8", "hex")
-    encryptedString += encryptionKey.final("hex");
+    let encryptedstring = encryptionKey.update(word, "utf8", "hex")
+    encryptedstring += encryptionKey.final("hex");
 
-    return encryptedString;
+    return encryptedstring;
   }
 
   public decrypt(encryptedWord: string): string {
     let decryptionKey = createDecipher(this.algorithm, this.password);
-    let decryptedString = decryptionKey.update(encryptedWord, "hex", "utf8");
-    decryptedString += decryptionKey.final("utf8");
+    let decryptedstring = decryptionKey.update(encryptedWord, "hex", "utf8");
+    decryptedstring += decryptionKey.final("utf8");
 
-    return decryptedString;
+    return decryptedstring;
   }
 }
