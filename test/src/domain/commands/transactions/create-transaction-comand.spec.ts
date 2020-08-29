@@ -37,7 +37,7 @@ describe("CreateTransactionCommand", () => {
     await command.execute(transaction);
 
     // then
-    const { id, ...rest } = eventEmittedData!;
+    const { id, createdAt, updatedAt, ...rest } = eventEmittedData!;
     expect(rest).to.be.deep.equal(transaction);
   });
 });
