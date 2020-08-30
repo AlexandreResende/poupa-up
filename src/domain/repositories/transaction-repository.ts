@@ -18,6 +18,10 @@ export default class TransactionRepository implements TransactionRepositoryInter
     return fromDatabase(await this.repository.create(transactionData));
   }
 
+  async bulkInsert(transactions: TransactionInterface[]): Promise<Transaction[]> {
+    return await this.repository.bulkCreate(transactions).map(fromDatabase);
+  }
+
   async findAll(): Promise<Transaction[]> {
     return this.repository.findAll({ where: {} }).map(fromDatabase);
   }
