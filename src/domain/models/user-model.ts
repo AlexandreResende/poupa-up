@@ -13,6 +13,7 @@ import {
   HasMany
 } from "sequelize-typescript";
 import TransactionModel from "./transaction-model";
+import InvestimentModel from "./investiment-model";
 
 @Table({
   tableName: "user",
@@ -42,6 +43,9 @@ export default class UserModel extends Model<UserModel> {
 
   @HasMany(() => TransactionModel)
   transactions!: TransactionModel[]
+
+  @HasMany(() => InvestimentModel)
+  investiments!: InvestimentModel[]
 
   @AllowNull(false)
   @Column(DataType.STRING)
