@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { EventEmitter } from "events";
 import HttpResponseHandler from "../../http-response-handler";
-import Container from "../../containers/container";
+import Container from "@src/application/containers/container";
 import ImportTransactionsCSVResponse from "./import-transactions-csv-response";
 
 export default class ImportTransactionsCSVController {
