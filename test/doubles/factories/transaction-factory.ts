@@ -11,6 +11,6 @@ export default class TransactionFactory {
       month: fakerStatic.random.arrayElement(months),
       year: String(fakerStatic.random.number({ min: 2014, max: 2020 })),
       ...fields,
-    }
+    };
   }
 }

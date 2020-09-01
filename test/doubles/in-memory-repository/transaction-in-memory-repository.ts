@@ -1,8 +1,12 @@
 import TransactionRepositoryInterface from "../../../src/application/interfaces/repository-interfaces/transaction-repository-interface";
 import UpdateTransactionInterface from "../../../src/application/interfaces/update-transaction-interface";
-import { Transaction, TransactionRepositoryDataInterface } from "../../../src/application/interfaces/transaction-interface";
+import {
+  Transaction as TransactionInterface,
+  TransactionRepositoryDataInterface
+} from "../../../src/application/interfaces/transaction-interface";
 import { fromDatabase } from "../../../src/application/mapper/transaction-mapper";
 import { v4 } from "uuid";
+import Transaction from "../../../src/domain/entities/transaction-entity";
 
 export default class TransactionInMemoryRepository implements TransactionRepositoryInterface {
   public transaction: TransactionRepositoryDataInterface[];
@@ -11,7 +15,7 @@ export default class TransactionInMemoryRepository implements TransactionReposit
     this.transaction = [];
   }
 
-  async create(transaction: Transaction): Promise<TransactionRepositoryDataInterface> {
+  async create(transaction: TransactionInterface): Promise<Transaction> {
     const newTransaction = {
       ...transaction,
       id: v4(),
@@ -24,7 +28,20 @@ export default class TransactionInMemoryRepository implements TransactionReposit
     return fromDatabase(newTransaction);
   }
 
-  async findAll(): Promise<TransactionRepositoryDataInterface[]> {
+  async bulkInsert(transactions: TransactionInterface[]): Promise<Transaction[]> {
+    const newTransactions = transactions.map(transaction => ({
+      ...transaction,
+      id: v4(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    }));
+
+    this.transaction.concat(newTransactions);
+
+    return newTransactions.map(fromDatabase);
+  }
+
+  async findAll(): Promise<Transaction[]> {
     return this.transaction;
   }
 
