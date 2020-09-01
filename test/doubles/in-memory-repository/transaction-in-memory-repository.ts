@@ -9,16 +9,17 @@ import { v4 } from "uuid";
 import Transaction from "../../../src/domain/entities/transaction-entity";
 
 export default class TransactionInMemoryRepository implements TransactionRepositoryInterface {
-  public transaction: TransactionRepositoryDataInterface[];
+  public transaction: Transaction[];
 
   constructor() {
     this.transaction = [];
   }
 
-  async create(transaction: TransactionInterface): Promise<Transaction> {
+  async create(transaction: TransactionInterface, userId: string): Promise<Transaction> {
     const newTransaction = {
       ...transaction,
       id: v4(),
+      userId,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
@@ -28,10 +29,11 @@ export default class TransactionInMemoryRepository implements TransactionReposit
     return fromDatabase(newTransaction);
   }
 
-  async bulkInsert(transactions: TransactionInterface[]): Promise<Transaction[]> {
+  async bulkInsert(transactions: TransactionInterface[], userId: string): Promise<Transaction[]> {
     const newTransactions = transactions.map(transaction => ({
       ...transaction,
       id: v4(),
+      userId,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     }));

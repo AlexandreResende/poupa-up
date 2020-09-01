@@ -3,9 +3,10 @@ import { EventEmitter } from "events";
 import HttpResponseHandler from "../../http-response-handler";
 import Container from "@src/application/containers/container";
 import ImportTransactionsCSVResponse from "./import-transactions-csv-response";
+import { ImportTransactionsCSVRequest } from "./import-transactions-csv-request";
 
 export default class ImportTransactionsCSVController {
-  async handleRequest(_: Request, res: Response): Promise<void> {
+  async handleRequest(req: Request, res: Response): Promise<void> {
     const importTransactionsCSV = async (data: { recordsInserted: number }): Promise<void> => {
       const importTransactionsCSVResponse = new ImportTransactionsCSVResponse(data.recordsInserted);
 
@@ -16,7 +17,9 @@ export default class ImportTransactionsCSVController {
     events.on("importransactionsCSVEvent", importTransactionsCSV);
 
     const command = Container.resolve("importTransactionsCSVCommand", events);
+    const userId: string = req.headers.userId as string;
+    const transactions = ImportTransactionsCSVRequest.toTransactionDomain(req.body);
 
-    await command.execute();
+    await command.execute(transactions, userId);
   }
 }

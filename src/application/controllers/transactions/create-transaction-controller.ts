@@ -9,6 +9,7 @@ import months from "../../../common/month-representation";
 
 export default class CreateTransactionController {
   async handleRequest (req: Request, res: Response): Promise<void> {
+    const userId: string = req.headers.userId as string;
     const transaction = req.body;
     const schema = {
       value: Type(Number),
@@ -32,6 +33,6 @@ export default class CreateTransactionController {
 
     const command = Container.resolve("createTransactionCommand", events);
 
-    await command.execute(transaction);
+    await command.execute(transaction, userId);
   }
 }

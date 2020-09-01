@@ -14,12 +14,14 @@ export default class TransactionRepository implements TransactionRepositoryInter
     this.repository = sequelize.getRepository(TransactionModel);
   }
 
-  async create(transactionData: TransactionInterface): Promise<Transaction> {
-    return fromDatabase(await this.repository.create(transactionData));
+  async create(transactionData: TransactionInterface, userId: string): Promise<Transaction> {
+    return fromDatabase(await this.repository.create({ ...transactionData, userId }));
   }
 
-  async bulkInsert(transactions: TransactionInterface[]): Promise<Transaction[]> {
-    return await this.repository.bulkCreate(transactions).map(fromDatabase);
+  async bulkInsert(transactions: TransactionInterface[], userId: string): Promise<Transaction[]> {
+    const newTransactions = transactions.map((transaction: TransactionInterface) => ({ ...transaction, userId }));
+
+    return await this.repository.bulkCreate(newTransactions).map(fromDatabase);
   }
 
   async findAll(): Promise<Transaction[]> {

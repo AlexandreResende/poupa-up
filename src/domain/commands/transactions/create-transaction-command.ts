@@ -12,8 +12,8 @@ export default class CreateTransactionCommand implements BaseCommandInterface {
     this.transactionRepository = transactionRepository;
   }
 
-  async execute(transaction: TransactionInterface): Promise<void> {
-    const transactionCreated = await this.transactionRepository.create(transaction);
+  async execute(transaction: TransactionInterface, userId: string): Promise<void> {
+    const transactionCreated = await this.transactionRepository.create(transaction, userId);
 
     this.events.emit("transactionSuccessfullyCreatedEvent", transactionCreated);
   }

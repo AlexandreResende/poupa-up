@@ -8,6 +8,7 @@ export interface Transaction {
 
 export interface TransactionRepositoryDataInterface extends Transaction {
   id: string;
-  createdAt: string;
-  updatedAt: string;
+  userId: string;
+  createdAt?: string;
+  updatedAt?: string;
 }

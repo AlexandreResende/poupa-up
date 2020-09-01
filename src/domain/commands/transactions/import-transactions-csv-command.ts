@@ -12,8 +12,8 @@ export class ImportTransactionsCSVCommand implements BaseCommandInterface {
     this.transactionRepository = transactionRepository;
   }
 
-  async execute(transactions: TransactionInterface[]): Promise<void> {
-    const transactionsInserted = await this.transactionRepository.bulkInsert(transactions);
+  async execute(transactions: TransactionInterface[], userId: string): Promise<void> {
+    const transactionsInserted = await this.transactionRepository.bulkInsert(transactions, userId);
 
     this.events.emit("importransactionsCSVEvent", transactionsInserted);
   }

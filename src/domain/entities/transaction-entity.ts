@@ -17,7 +17,7 @@ export default class Transaction {
     this.category = transaction.category;
     this.month = transaction.month;
     this.year = transaction.year;
-    this.createdAt = transaction.createdAt;
-    this.updatedAt = transaction.updatedAt;
+    this.createdAt = transaction.createdAt ?? new Date().toISOString();
+    this.updatedAt = transaction.updatedAt ?? new Date().toISOString();
   }
 }
