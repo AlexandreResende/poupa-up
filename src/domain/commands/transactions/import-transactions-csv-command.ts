@@ -18,4 +18,3 @@ export class ImportTransactionsCSVCommand implements BaseCommandInterface {
     this.events.emit("importTransactionsCSVCommand", transactionsInserted);
   }
 }
-
