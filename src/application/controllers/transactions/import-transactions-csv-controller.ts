@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { EventEmitter } from "events";
-import HttpResponseHandler from "../../http-response-handler";
+import HttpResponseHandler from "@src/application/http-response-handler";
 import Container from "@src/application/containers/container";
-import ImportTransactionsCSVResponse from "./import-transactions-csv-response";
-import { ImportTransactionsCSVRequest } from "./import-transactions-csv-request";
+import ImportTransactionsCSVResponse from "@src/application/controllers/transactions/import-transactions-csv-response";
+import { ImportTransactionsCSVRequest } from "@src/application/controllers/transactions/import-transactions-csv-request";
 
 export default class ImportTransactionsCSVController {
   async handleRequest(req: Request, res: Response): Promise<void> {
