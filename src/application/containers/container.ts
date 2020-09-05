@@ -1,11 +1,11 @@
 import { EventEmitter } from "events";
-import CreateTransactionCommandFactory from "./transactions/create-transaction-command-factory";
-import DeleteTransactionCommandFactory from "./transactions/delete-transaction-command-factory";
-import GetTransactionsCommandFactory from "./transactions/get-transactions-command-factory";
-import UpdateTransactionCommandFactory from "./transactions/update-transaction-command-factory";
-import ImportTransactionsCSVCommandFactory from "./transactions/import-transactions-csv-command-factory";
-import { BaseCommandInterface } from "../../domain/commands/base-command-interface";
-import CommandFactoryInterface from "./command-factory-interface"
+import CreateTransactionCommandFactory from "@src/application/containers/transactions/create-transaction-command-factory";
+import DeleteTransactionCommandFactory from "@src/application/containers/transactions/delete-transaction-command-factory";
+import GetTransactionsCommandFactory from "@src/application/containers/transactions/get-transactions-command-factory";
+import UpdateTransactionCommandFactory from "@src/application/containers/transactions/update-transaction-command-factory";
+import ImportTransactionsCSVCommandFactory from "@src/application/containers/transactions/import-transactions-csv-command-factory";
+import { BaseCommandInterface } from "@src/domain/commands/base-command-interface";
+import CommandFactoryInterface from "@src/application/containers/command-factory-interface"
 
 export default class Container {
   private static readonly commandFactories: { [key: string]: CommandFactoryInterface } = {
