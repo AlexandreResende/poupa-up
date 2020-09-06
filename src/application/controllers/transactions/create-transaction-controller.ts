@@ -4,8 +4,8 @@ import { Type, Any } from "validate-typescript";
 import Validator from "../../validator";
 import HttpResponseHandler from "../../http-response-handler";
 import { Transaction as TransactionInterface } from "../../interfaces/transaction-interface";
-import Container from "../../containers/container";
-import months from "../../../common/month-representation";
+import Container from "@src/application/containers/container";
+import months from "@src/common/month-representation";
 
 export default class CreateTransactionController {
   async handleRequest (req: Request, res: Response): Promise<void> {
