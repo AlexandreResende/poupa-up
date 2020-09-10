@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
-import TransactionRepository from "../../../domain/repositories/transaction-repository";
-import UpdateTransactionCommand from "../../../domain/commands/transactions/update-transaction-command";
+import TransactionRepository from "@src/domain/repositories/transaction-repository";
+import UpdateTransactionCommand from "@src/domain/commands/transactions/update-transaction-command";
 
 export default class UpdateTransactionCommandFactory {
   create(events: EventEmitter): UpdateTransactionCommand {
