@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { expressHandler } from "../express-handler";
-import GetTransactionsController from "./transactions/get-transactions-controller";
-import CreateTransactionController from "./transactions/create-transaction-controller";
-import UpdateTransactionController from "./transactions/update-transaction-controller";
-import DeleteTransactionController from "./transactions/delete-transaction-controller";
+import GetTransactionsController from "@src/application/controllers/transactions/get-transactions-controller";
+import CreateTransactionController from "@src/application/controllers/transactions/create-transaction-controller";
+import UpdateTransactionController from "@src/application/controllers/transactions/update-transaction-controller";
+import DeleteTransactionController from "@src/application/controllers/transactions/delete-transaction-controller";
 
 export class Routes {
   public routes: Router;
