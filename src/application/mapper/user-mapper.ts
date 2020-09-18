@@ -1,5 +1,5 @@
-import { UserRepositoryDataInterface as UserInterface } from "../interfaces/user-interface";
-import User from "../../domain/entities/user-entity";
+import { UserRepositoryDataInterface as UserInterface } from "@src/application/interfaces/user-interface";
+import User from "@src/domain/entities/user-entity";
 
 interface UserToDatabaseInterface {
   email?: string;
