@@ -1,5 +1,5 @@
-import { User as UserInterface } from "../user-interface";
-import UpdateUserInterface from "../update-user-interface";
+import { User as UserInterface } from "@src/application/interfaces/user-interface";
+import UpdateUserInterface from "@src/application/interfaces/update-user-interface";
 
 export default interface UserRepositoryInterface {
   create(user: UserInterface): Promise<UserInterface>;
