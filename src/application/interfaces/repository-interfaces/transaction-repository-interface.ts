@@ -1,6 +1,6 @@
-import { Transaction as TransactionInterface } from "../transaction-interface";
-import UpdateTransactionInterface from "../update-transaction-interface";
-import Transaction from "../../../domain/entities/transaction-entity";
+import { Transaction as TransactionInterface } from "@src/application/interfaces/transaction-interface";
+import UpdateTransactionInterface from "@src/application/interfaces/update-transaction-interface";
+import Transaction from "@src/domain/entities/transaction-entity";
 
 export default interface TransactionRepositoryInterface {
   create(transaction: TransactionInterface, userId: string): Promise<Transaction>;
