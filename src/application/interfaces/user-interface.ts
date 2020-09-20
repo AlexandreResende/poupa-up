@@ -1,4 +1,4 @@
-import { TransactionRepositoryDataInterface } from "./transaction-interface";
+import { TransactionRepositoryDataInterface } from "@src/application/interfaces/transaction-interface";
 
 export interface User {
   email: string;
