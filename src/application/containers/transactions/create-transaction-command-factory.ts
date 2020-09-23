@@ -1,6 +1,6 @@
-import CreateTransactionCommand from "../../../domain/commands/transactions/create-transaction-command";
+import CreateTransactionCommand from "@src/domain/commands/transactions/create-transaction-command";
 import { EventEmitter } from "events";
-import TransactionRepository from "../../../domain/repositories/transaction-repository";
+import TransactionRepository from "@src/domain/repositories/transaction-repository";
 
 export default class CreateTransactionCommandFactory {
   create(events: EventEmitter) {
@@ -8,4 +8,4 @@ export default class CreateTransactionCommandFactory {
 
     return new CreateTransactionCommand(events, transactionRepository);
   }
-} 
+}
