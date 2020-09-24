@@ -1,6 +1,6 @@
 import { EventEmitter } from "events";
-import DeleteTransactionCommand from "../../../domain/commands/transactions/delete-transaction-command";
-import TransactionRepository from "../../../domain/repositories/transaction-repository";
+import DeleteTransactionCommand from "@src/domain/commands/transactions/delete-transaction-command";
+import TransactionRepository from "@src/domain/repositories/transaction-repository";
 
 export default class DeleteTransactionCommandFactory {
   create(events: EventEmitter): DeleteTransactionCommand {
