@@ -1,4 +1,4 @@
-import HttpResponseHandler from "@src/application/http-response-handler";
+import { HttpResponseHandler } from "./http-response-handler";
 import { NextFunction, Response, Request } from "express";
 
 export const expressHandler = (controller: any) => {

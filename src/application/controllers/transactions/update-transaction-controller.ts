@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Validator from "../../validator";
 import { Type, Any, Optional } from "validate-typescript";
 import months from "../../../common/month-representation"
-import HttpResponseHandler from "../../http-response-handler";
+import { HttpResponseHandler } from "@src/application/http-response-handler";
 import { EventEmitter } from "events";
 import Container from "../../containers/container";
 

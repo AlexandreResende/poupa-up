@@ -1,10 +1,12 @@
-import TransactionRepositoryInterface from "../../../../../src/application/interfaces/repository-interfaces/transaction-repository-interface";
-import UpdateTransactionCommand from "../../../../../src/domain/commands/transactions/update-transaction-command";
-import { EventEmitter } from "events";
-import TransactionInMemoryRepository from "../../../../doubles/in-memory-repository/transaction-in-memory-repository";
-import TransactionFactory from "../../../../doubles/factories/transaction-factory";
-import fakerStatic from "faker";
 import { v4 } from "uuid";
+import fakerStatic from "faker";
+import TransactionRepositoryInterface from "@src/application/interfaces/repository-interfaces/transaction-repository-interface";
+import UpdateTransactionCommand from "@src/domain/commands/transactions/update-transaction-command";
+import { EventEmitter } from "events";
+import TransactionInMemoryRepository from "@test/doubles/in-memory-repository/transaction-in-memory-repository";
+import TransactionFactory from "@test/doubles/factories/transaction-factory";
+import UserFactory from "@test/doubles/factories/user-factory";
+import { UserInMemoryRepository } from "@test/doubles/in-memory-repository/user-in-memory-repository";
 
 const { expect } = require("chai");
 
@@ -17,6 +19,7 @@ const createCommand = (
 
 describe("UpdateTransactionCommand", () => {
   const transactionRepository = new TransactionInMemoryRepository();
+  const userRepository = new UserInMemoryRepository();
 
   afterEach(async () => {
     await transactionRepository.destroy();
@@ -31,7 +34,10 @@ describe("UpdateTransactionCommand", () => {
       eventEmittedData = data;
     };
 
-    const { id } = await transactionRepository.create(transaction);
+    const user = UserFactory.create();
+    const userCreated = await userRepository.create(user);
+
+    const { id } = await transactionRepository.create(transaction, userCreated.id);
     const transactionId = id ?? v4();
     const updateTransactionData = {
       value: fakerStatic.random.number({ min: 1, max: 50 }),

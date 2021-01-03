@@ -1,7 +1,7 @@
 import { Response } from "express";
-import { StatusCodes } from "@src/application/http-status-code";
+import { StatusCodes } from "./http-status-code";
 
-export default class HttpResponseHandler {
+export class HttpResponseHandler {
   private readonly response: Response;
 
   constructor(response: Response) {

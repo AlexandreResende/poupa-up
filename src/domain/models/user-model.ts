@@ -41,9 +41,6 @@ export default class UserModel extends Model<UserModel> {
   @Column(DataType.STRING)
   fullName!: string;
 
-  @HasMany(() => TransactionModel)
-  transactions!: TransactionModel[]
-
   @HasMany(() => InvestimentModel)
   investiments!: InvestimentModel[]
 

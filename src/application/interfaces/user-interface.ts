@@ -1,10 +1,7 @@
-import { TransactionRepositoryDataInterface } from "@src/application/interfaces/transaction-interface";
-
 export interface User {
   email: string;
   password: string;
   fullName: string;
-  transactions: TransactionRepositoryDataInterface[]
   createdAt?: string;
   updatedAt?: string;
 }

@@ -1,3 +1,4 @@
+require('module-alias/register');
 import express, { Application } from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./src/application/controllers";
