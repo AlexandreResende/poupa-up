@@ -1,6 +1,6 @@
 import { createCipher, createDecipher, Cipher } from "crypto";
 
-export default class CryptographyService {
+export class CryptographyService {
   private readonly algorithm: string = process.env.CRYPTO_ALGORITHM ?? "";
   private readonly password:string = process.env.CRYPTO_PASSWORD ?? "";
 

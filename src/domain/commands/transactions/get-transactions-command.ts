@@ -1,6 +1,6 @@
 import { BaseCommandInterface } from "../base-command-interface";
 import { EventEmitter } from "events";
-import TransactionRepositoryInterface from "../../../application/interfaces/repository-interfaces/transaction-repository-interface";
+import { TransactionRepositoryInterface } from "../../../application/interfaces/repository-interfaces/transaction-repository-interface";
 
 export class GetTransactionsCommand implements BaseCommandInterface {
   private readonly events: EventEmitter;

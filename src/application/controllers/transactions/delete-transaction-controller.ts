@@ -3,7 +3,7 @@ import { EventEmitter } from "events";
 import { HttpResponseHandler } from "@src/application/http-response-handler";
 import Container from "@src/application/containers/container";
 
-export default class DeleteTransactionController {
+export class DeleteTransactionController {
   async handleRequest(req: Request, res: Response) {
     const id = req.params.id;
     const transactionRemovedSuccessfully = (data: { removed: number }) => {

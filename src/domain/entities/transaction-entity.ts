@@ -1,6 +1,6 @@
 import { TransactionRepositoryDataInterface as TransactionInterface } from "../../application/interfaces/transaction-interface";
 
-export default class Transaction {
+export class Transaction {
   public readonly id: string;
   public readonly value: number;
   public readonly description: string;

@@ -2,7 +2,7 @@ import TransactionRepository from "../../../domain/repositories/transaction-repo
 import { GetTransactionsCommand } from "../../../domain/commands/transactions/get-transactions-command";
 import { EventEmitter } from "events";
 
-export default class GetTransactionsCommandFactory {
+export class GetTransactionsCommandFactory {
   create(events: EventEmitter) {
     const transactionsRepository = new TransactionRepository();
 

@@ -1,11 +1,11 @@
 import { EventEmitter } from "events";
-import TransactionRepositoryInterface from "../../../application/interfaces/repository-interfaces/transaction-repository-interface";
+import { TransactionRepositoryInterface } from "../../../application/interfaces/repository-interfaces/transaction-repository-interface";
 import { BaseCommandInterface } from "../base-command-interface";
 
 export default class DeleteTransactionCommand implements BaseCommandInterface {
   private readonly events: EventEmitter;
   private readonly transactionRepository: TransactionRepositoryInterface;
-  
+
   constructor(events: EventEmitter,transactionRepository: TransactionRepositoryInterface) {
     this.events = events;
     this.transactionRepository = transactionRepository;

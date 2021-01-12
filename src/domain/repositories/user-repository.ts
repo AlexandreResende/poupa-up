@@ -2,8 +2,8 @@ import { sequelize } from "../../database-config";
 import UserModel from "../../domain/models/user-model"
 import { Repository } from "sequelize-typescript";
 import { User as UserInterface, UserRepositoryDataInterface } from "../../application/interfaces/user-interface";
-import UserRepositoryInterface from "../../application/interfaces/repository-interfaces/user-repository-interface"
-import UpdateUserInterface from "../../application/interfaces/update-user-interface";
+import { UserRepositoryInterface } from "../../application/interfaces/repository-interfaces/user-repository-interface"
+import { UpdateUserInterface } from "../../application/interfaces/update-user-interface";
 
 export default class UserRepository implements UserRepositoryInterface{
   public readonly repository: Repository<UserModel>;

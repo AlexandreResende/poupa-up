@@ -2,7 +2,7 @@ import CreateTransactionCommand from "@src/domain/commands/transactions/create-t
 import { EventEmitter } from "events";
 import TransactionRepository from "@src/domain/repositories/transaction-repository";
 
-export default class CreateTransactionCommandFactory {
+export class CreateTransactionCommandFactory {
   create(events: EventEmitter) {
     const transactionRepository = new TransactionRepository();
 

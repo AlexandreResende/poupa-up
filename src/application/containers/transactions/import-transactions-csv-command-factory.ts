@@ -2,7 +2,7 @@ import TransactionRepository from "@src/domain/repositories/transaction-reposito
 import { ImportTransactionsCSVCommand } from "@src/domain/commands/transactions/import-transactions-csv-command";
 import { EventEmitter } from "events";
 
-export default class ImportTransactionsCSVCommandFactory {
+export class ImportTransactionsCSVCommandFactory {
   create(events: EventEmitter) {
     const transactionRepository = new TransactionRepository();
 

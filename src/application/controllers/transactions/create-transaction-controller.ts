@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import { EventEmitter } from "events";
 import { Type, Any } from "validate-typescript";
-import Validator from "../../validator";
+import { Validator } from "../../validator";
 import { HttpResponseHandler } from "@src/application/http-response-handler";
 import { Transaction as TransactionInterface } from "../../interfaces/transaction-interface";
 import Container from "@src/application/containers/container";
 import months from "@src/common/month-representation";
 
-export default class CreateTransactionController {
+export class CreateTransactionController {
   async handleRequest (req: Request, res: Response): Promise<void> {
     const userId: string = req.headers.userId as string;
     const transaction = req.body;

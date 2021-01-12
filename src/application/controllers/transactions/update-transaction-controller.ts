@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import Validator from "../../validator";
+import { Validator } from "../../validator";
 import { Type, Any, Optional } from "validate-typescript";
 import months from "../../../common/month-representation"
 import { HttpResponseHandler } from "@src/application/http-response-handler";
 import { EventEmitter } from "events";
 import Container from "../../containers/container";
 
-export default class UpdateTransactionController {
+export class UpdateTransactionController {
   async handleRequest(req: Request, res: Response): Promise<void> {
     const id = req.params.id;
     const updateTransactionData = req.body;

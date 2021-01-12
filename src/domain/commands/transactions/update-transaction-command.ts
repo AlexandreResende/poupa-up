@@ -1,6 +1,6 @@
 import { EventEmitter } from "events"
-import TransactionRepositoryInterface from "../../../application/interfaces/repository-interfaces/transaction-repository-interface"
-import UpdateTransactionInterface from "../../../application/interfaces/update-transaction-interface"
+import { TransactionRepositoryInterface } from "../../../application/interfaces/repository-interfaces/transaction-repository-interface"
+import { UpdateTransactionInterface } from "../../../application/interfaces/update-transaction-interface"
 import { BaseCommandInterface } from "../base-command-interface";
 
 export default class UpdateTransactionCommand implements BaseCommandInterface {

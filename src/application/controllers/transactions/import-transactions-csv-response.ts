@@ -1,4 +1,4 @@
-export default class ImportTransactionsCSVResponse {
+export class ImportTransactionsCSVResponse {
   public readonly recordsInserted: number;
 
   constructor (recordsInserted: number) {

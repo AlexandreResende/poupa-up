@@ -1,6 +1,6 @@
 import { UserRepositoryDataInterface as UserInterface } from "../../application/interfaces/user-interface";
 
-export default class User {
+export class User {
   public readonly id: string;
   public readonly email: string;
   public readonly password: string;

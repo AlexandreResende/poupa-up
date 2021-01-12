@@ -1,4 +1,4 @@
-import Transaction from "@src/domain/entities/transaction-entity";
+import { Transaction } from "@src/domain/entities/transaction-entity";
 import {
   TransactionRepositoryDataInterface as TransactionRepositoryInterface
 } from "../../application/interfaces/transaction-interface";

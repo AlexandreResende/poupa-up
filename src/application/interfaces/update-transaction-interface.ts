@@ -1,4 +1,4 @@
-export default interface UpdateTransactionInterface {
+export interface UpdateTransactionInterface {
   value?: number;
   description?: string;
   category?: string;

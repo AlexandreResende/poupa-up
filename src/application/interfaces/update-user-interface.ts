@@ -1,4 +1,4 @@
-export default interface UpdateUserInterface {
+export interface UpdateUserInterface {
   email?: string;
   fullName?: string;
 }

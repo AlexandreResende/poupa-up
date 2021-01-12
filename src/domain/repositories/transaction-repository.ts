@@ -2,10 +2,10 @@ import { sequelize } from "../../database-config";
 import TransactionModel from "../../domain/models/transaction-model"
 import { Repository } from "sequelize-typescript";
 import { Transaction as TransactionInterface } from "../../application/interfaces/transaction-interface";
-import TransactionRepositoryInterface from "../../application/interfaces/repository-interfaces/transaction-repository-interface"
-import UpdateTransactionInterface from "../../application/interfaces/update-transaction-interface";
+import { TransactionRepositoryInterface } from "../../application/interfaces/repository-interfaces/transaction-repository-interface"
+import { UpdateTransactionInterface } from "../../application/interfaces/update-transaction-interface";
 import { fromDatabase } from "../../application/mapper/transaction-mapper";
-import Transaction from "../entities/transaction-entity";
+import { Transaction } from "../entities/transaction-entity";
 
 export default class TransactionRepository implements TransactionRepositoryInterface{
   public readonly repository: Repository<TransactionModel>;

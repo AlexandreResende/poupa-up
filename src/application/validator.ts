@@ -5,7 +5,7 @@ interface ValidatorReturn {
   error?: Error
 }
 
-export default class Validator {
+export class Validator {
   public static validate(schema: object, input: object): ValidatorReturn {
     try {
       validate(schema, input);
