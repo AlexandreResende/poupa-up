@@ -2,7 +2,7 @@ import fakerStatic from "faker";
 import { Transaction } from "../../../src/application/interfaces/transaction-interface"
 import months from "../../../src/common/month-representation";
 
-export default class TransactionFactory {
+export class TransactionFactory {
   public static create(fields = {}): Transaction {
     return {
       value: fakerStatic.random.number({ min: 1, max: 50 }),

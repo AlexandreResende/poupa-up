@@ -1,11 +1,11 @@
 import { v4 } from "uuid";
 import fakerStatic from "faker";
-import TransactionRepositoryInterface from "@src/application/interfaces/repository-interfaces/transaction-repository-interface";
+import { TransactionRepositoryInterface } from "@src/application/interfaces/repository-interfaces/transaction-repository-interface";
 import UpdateTransactionCommand from "@src/domain/commands/transactions/update-transaction-command";
 import { EventEmitter } from "events";
 import TransactionInMemoryRepository from "@test/doubles/in-memory-repository/transaction-in-memory-repository";
-import TransactionFactory from "@test/doubles/factories/transaction-factory";
-import UserFactory from "@test/doubles/factories/user-factory";
+import { TransactionFactory } from "@test/doubles/factories/transaction-factory";
+import { UserFactory } from "@test/doubles/factories/user-factory";
 import { UserInMemoryRepository } from "@test/doubles/in-memory-repository/user-in-memory-repository";
 
 const { expect } = require("chai");

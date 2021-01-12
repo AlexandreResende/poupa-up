@@ -1,10 +1,10 @@
 import { EventEmitter } from "events";
 import { GetTransactionsCommand } from "@src/domain/commands/transactions/get-transactions-command";
-import TransactionRepositoryInterface from "@src/application/interfaces/repository-interfaces/transaction-repository-interface"
+import { TransactionRepositoryInterface } from "@src/application/interfaces/repository-interfaces/transaction-repository-interface"
 import TransactionInMemoryRepository from "@test/doubles/in-memory-repository/transaction-in-memory-repository";
-import TransactionFactory from "@test/doubles/factories/transaction-factory"
+import { TransactionFactory } from "@test/doubles/factories/transaction-factory"
 import { Transaction } from "@src/application/interfaces/transaction-interface";
-import UserFactory from "@test/doubles/factories/user-factory";
+import { UserFactory } from "@test/doubles/factories/user-factory";
 import { UserInMemoryRepository } from "@test/doubles/in-memory-repository/user-in-memory-repository";
 
 const { expect } = require("chai");

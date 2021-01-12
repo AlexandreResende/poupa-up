@@ -1,15 +1,15 @@
-import TransactionRepositoryInterface from "../../../src/application/interfaces/repository-interfaces/transaction-repository-interface";
-import UpdateTransactionInterface from "../../../src/application/interfaces/update-transaction-interface";
+import { TransactionRepositoryInterface } from "../../../src/application/interfaces/repository-interfaces/transaction-repository-interface";
+import { UpdateTransactionInterface } from "../../../src/application/interfaces/update-transaction-interface";
 import {
   Transaction as TransactionInterface,
   TransactionRepositoryDataInterface
 } from "../../../src/application/interfaces/transaction-interface";
 import { fromDatabase } from "@src/application/mapper/user-mapper";
 import { v4 } from "uuid";
-import Transaction from "../../../src/domain/entities/transaction-entity";
-import UserRepositoryInterface from "@src/application/interfaces/repository-interfaces/user-repository-interface";
+import { Transaction } from "../../../src/domain/entities/transaction-entity";
+import { UserRepositoryInterface } from "@src/application/interfaces/repository-interfaces/user-repository-interface";
 import { User as UserInterface, UserRepositoryDataInterface } from "@src/application/interfaces/user-interface";
-import UpdateUserInterface from "@src/application/interfaces/update-user-interface";
+import { UpdateUserInterface } from "@src/application/interfaces/update-user-interface";
 
 export class UserInMemoryRepository implements UserRepositoryInterface {
   public user: UserRepositoryDataInterface[];

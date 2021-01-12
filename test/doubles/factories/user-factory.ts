@@ -1,7 +1,7 @@
 import fakerStatic from "faker";
 import { User } from "../../../src/application/interfaces/user-interface"
 
-export default class UserFactory {
+export class UserFactory {
   public static create(fields = {}): User {
     return {
       email: fakerStatic.internet.email(),

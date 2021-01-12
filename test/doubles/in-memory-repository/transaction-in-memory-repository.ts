@@ -1,12 +1,12 @@
-import TransactionRepositoryInterface from "../../../src/application/interfaces/repository-interfaces/transaction-repository-interface";
-import UpdateTransactionInterface from "../../../src/application/interfaces/update-transaction-interface";
+import { TransactionRepositoryInterface } from "../../../src/application/interfaces/repository-interfaces/transaction-repository-interface";
+import { UpdateTransactionInterface } from "../../../src/application/interfaces/update-transaction-interface";
 import {
   Transaction as TransactionInterface,
   TransactionRepositoryDataInterface
 } from "../../../src/application/interfaces/transaction-interface";
 import { fromDatabase } from "../../../src/application/mapper/transaction-mapper";
 import { v4 } from "uuid";
-import Transaction from "../../../src/domain/entities/transaction-entity";
+import { Transaction } from "../../../src/domain/entities/transaction-entity";
 
 export default class TransactionInMemoryRepository implements TransactionRepositoryInterface {
   public transaction: Transaction[];
