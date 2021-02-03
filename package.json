@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",
+    "@types/chai-http": "^4.2.0",
     "@types/faker": "^4.1.12",
     "@types/mocha": "^8.0.1",
     "chai": "^4.2.0",
