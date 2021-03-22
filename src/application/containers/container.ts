@@ -6,6 +6,7 @@ import { UpdateTransactionCommandFactory } from "@src/application/containers/tra
 import { ImportTransactionsCSVCommandFactory } from "@src/application/containers/transactions/import-transactions-csv-command-factory";
 import { BaseCommandInterface } from "@src/domain/commands/base-command-interface";
 import { CommandFactoryInterface } from "@src/application/containers/command-factory-interface";
+import { CreateUserCommandFactory } from "@src/application/containers/user/create-user-command-factory";
 
 export default class Container {
   private static readonly commandFactories: { [key: string]: CommandFactoryInterface } = {
@@ -14,6 +15,7 @@ export default class Container {
     ["getTransactionsCommand"]: new GetTransactionsCommandFactory(),
     ["updateTransactionCommand"]: new UpdateTransactionCommandFactory(),
     ["importTransactionsCSVCommand"]: new ImportTransactionsCSVCommandFactory(),
+    ["createUserCommand"]: new CreateUserCommandFactory(),
   };
 
   public static resolve(commandName: string, events: EventEmitter): BaseCommandInterface {

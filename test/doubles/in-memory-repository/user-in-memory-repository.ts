@@ -23,8 +23,8 @@ export class UserInMemoryRepository implements UserRepositoryInterface {
       ...userData,
       id: v4(),
       transactions: [],
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
 
     this.user.push(newUser);

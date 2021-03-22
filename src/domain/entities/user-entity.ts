@@ -5,8 +5,8 @@ export class User {
   public readonly email: string;
   public readonly password: string;
   public readonly fullName: string;
-  public readonly createdAt: string;
-  public readonly updatedAt: string;
+  public readonly createdAt: Date;
+  public readonly updatedAt: Date;
 
   constructor(user: UserInterface) {
     this.id = user.id;

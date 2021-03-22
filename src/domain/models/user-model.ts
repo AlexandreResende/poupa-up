@@ -44,11 +44,13 @@ export default class UserModel extends Model<UserModel> {
   @HasMany(() => InvestimentModel)
   investiments!: InvestimentModel[]
 
-  @AllowNull(false)
-  @Column(DataType.STRING)
-  createdAt!: string;
+  @AllowNull(true)
+  @Default(() => { return new Date(); })
+  @Column(DataType.DATE)
+  createdAt!: Date;
 
-  @AllowNull(false)
-  @Column(DataType.STRING)
-  updatedAt!: string;
+  @AllowNull(true)
+  @Default(() => { return new Date(); })
+  @Column(DataType.DATE)
+  updatedAt!: Date;
 };
