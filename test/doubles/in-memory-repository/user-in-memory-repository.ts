@@ -10,15 +10,16 @@ import { Transaction } from "../../../src/domain/entities/transaction-entity";
 import { UserRepositoryInterface } from "@src/application/interfaces/repository-interfaces/user-repository-interface";
 import { User as UserInterface, UserRepositoryDataInterface } from "@src/application/interfaces/user-interface";
 import { UpdateUserInterface } from "@src/application/interfaces/update-user-interface";
+import { User } from "@src/domain/entities/user-entity";
 
 export class UserInMemoryRepository implements UserRepositoryInterface {
-  public user: UserRepositoryDataInterface[];
+  public user: User[];
 
   constructor() {
     this.user = [];
   }
 
-  async create(userData: UserInterface): Promise<UserRepositoryDataInterface> {
+  async create(userData: UserInterface): Promise<User> {
     const newUser = {
       ...userData,
       id: v4(),
@@ -26,10 +27,21 @@ export class UserInMemoryRepository implements UserRepositoryInterface {
       createdAt: new Date(),
       updatedAt: new Date()
     };
+    const userEntity = fromDatabase(newUser) as User;
 
-    this.user.push(newUser);
+    this.user.push(userEntity);
 
-    return fromDatabase(newUser);
+    return userEntity;
+  }
+
+  async findByEmail(email: string): Promise<User | null> {
+    const user = await this.user.find(user => user.email === email);
+
+    if (!user) {
+      return null;
+    }
+
+    return fromDatabase(user);
   }
 
   async update(id: string, updateUserData: UpdateUserInterface): Promise<{ updated: number }> {

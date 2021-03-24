@@ -29,6 +29,7 @@ export default class UserModel extends Model<UserModel> {
 
   @AllowNull(false)
   @IsEmail
+  @Unique
   @Column(DataType.STRING)
   @Index
   email!: string;

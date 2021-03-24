@@ -16,6 +16,10 @@ export class HttpResponseHandler {
     response.status(StatusCodes.BAD_REQUEST).send(data);
   }
 
+  public static sendNotFound(response: Response, data: object) {
+    response.status(StatusCodes.NOT_FOUND).send(data);
+  }
+
   public static sendInternalError(response: Response, error: Error): void {
     response.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
       message: "An internal error occurred",

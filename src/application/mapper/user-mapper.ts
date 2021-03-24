@@ -7,7 +7,13 @@ interface UserToDatabaseInterface {
   fullName?: string;
 };
 
-export const fromDatabase = (attributes: UserInterface) => new User(attributes);
+export const fromDatabase = (attributes: UserInterface | null): User | null => {
+  if (!attributes) {
+    return null
+  }
+
+  return new User(attributes);
+};
 
 export const toDatabase = (attributes: UserToDatabaseInterface) => ({
   email: attributes.email,
