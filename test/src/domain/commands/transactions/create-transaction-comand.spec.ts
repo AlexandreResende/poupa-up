@@ -16,37 +16,39 @@ const createCommand = (
   return new CreateTransactionCommand(events, transactionRepository);
 };
 
-describe("CreateTransactionCommand", () => {
-  const transactionRepository = new TransactionInMemoryRepository();
-  const userRepository = new  UserInMemoryRepository();
+describe("Unit", () => {
+  describe("CreateTransactionCommand", () => {
+    const transactionRepository = new TransactionInMemoryRepository();
+    const userRepository = new  UserInMemoryRepository();
 
-  afterEach(async () => {
-    transactionRepository.destroy();
-  });
+    afterEach(async () => {
+      transactionRepository.destroy();
+    });
 
-  it("publishes the transactionSuccessfullyCreatedEvent when transaction is created", async () => {
-    // given
-    let eventEmittedData: TransactionRepositoryDataInterface;
+    it("publishes the transactionSuccessfullyCreatedEvent when transaction is created", async () => {
+      // given
+      let eventEmittedData: TransactionRepositoryDataInterface;
 
-    const user = UserFactory.create();
-    const userCreated = await userRepository.create(user);
+      const user = UserFactory.create();
+      const userCreated = await userRepository.create(user);
 
-    const transaction = TransactionFactory.create();
+      const transaction = TransactionFactory.create();
 
-    const events = new EventEmitter();
+      const events = new EventEmitter();
 
-    const transactionSuccessfullyCreated = (data: TransactionRepositoryDataInterface) => {
-      eventEmittedData = data;
-    };
+      const transactionSuccessfullyCreated = (data: TransactionRepositoryDataInterface) => {
+        eventEmittedData = data;
+      };
 
-    events.on("transactionSuccessfullyCreatedEvent",  transactionSuccessfullyCreated);
+      events.on("transactionSuccessfullyCreatedEvent",  transactionSuccessfullyCreated);
 
-    // when
-    const command = createCommand(events, transactionRepository);
-    await command.execute(transaction, userCreated.id);
+      // when
+      const command = createCommand(events, transactionRepository);
+      await command.execute(transaction, userCreated.id);
 
-    // then
-    const { id, createdAt, updatedAt, ...rest } = eventEmittedData!;
-    expect(rest).to.be.deep.equal(transaction);
+      // then
+      const { id, createdAt, updatedAt, ...rest } = eventEmittedData!;
+      expect(rest).to.be.deep.equal(transaction);
+    });
   });
 });

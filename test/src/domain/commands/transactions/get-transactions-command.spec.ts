@@ -16,57 +16,59 @@ const createCommand = (
   return new GetTransactionsCommand(events, transactionRepository);
 };
 
-describe("GetTransactionsCommand", () => {
-  const transactionRepository = new TransactionInMemoryRepository();
-  const userRepository = new UserInMemoryRepository();
+describe("Unit", () => {
+  describe("GetTransactionsCommand", () => {
+    const transactionRepository = new TransactionInMemoryRepository();
+    const userRepository = new UserInMemoryRepository();
 
-  afterEach(async () => {
-    await transactionRepository.destroy();
-  });
+    afterEach(async () => {
+      await transactionRepository.destroy();
+    });
 
-  it("returns an empty array when there is no transactions registered", async () => {
-    // given
-    let eventEmittedData: Transaction[];
-    const expectedTransactionsLength = 0;
-    const getTransactionsSuccessfullyEvent = (data: Transaction[]) => {
-      eventEmittedData = data
-    };
+    it("returns an empty array when there is no transactions registered", async () => {
+      // given
+      let eventEmittedData: Transaction[];
+      const expectedTransactionsLength = 0;
+      const getTransactionsSuccessfullyEvent = (data: Transaction[]) => {
+        eventEmittedData = data
+      };
 
-    const events = new EventEmitter();
-    events.on("getTransactionsSuccessfullyEvent", getTransactionsSuccessfullyEvent);
+      const events = new EventEmitter();
+      events.on("getTransactionsSuccessfullyEvent", getTransactionsSuccessfullyEvent);
 
-    // when
-    const command = createCommand(events, transactionRepository);
-    await command.execute();
+      // when
+      const command = createCommand(events, transactionRepository);
+      await command.execute();
 
-    // then
-    expect(eventEmittedData!.length).to.be.equal(expectedTransactionsLength);
-  });
+      // then
+      expect(eventEmittedData!.length).to.be.equal(expectedTransactionsLength);
+    });
 
-  it("returns an array with length equals two when there is no transactions registered", async () => {
-    // given
-    let eventEmittedData: Transaction[];
-    const expectedTransactionsLength = 2;
-    const maxTransactionsToBeCreated = 2;
-    const getTransactionsSuccessfullyEvent = (data: Transaction[]) => {
-      eventEmittedData = data
-    };
+    it("returns an array with length equals two when there is no transactions registered", async () => {
+      // given
+      let eventEmittedData: Transaction[];
+      const expectedTransactionsLength = 2;
+      const maxTransactionsToBeCreated = 2;
+      const getTransactionsSuccessfullyEvent = (data: Transaction[]) => {
+        eventEmittedData = data
+      };
 
-    for (let counter = 0; counter < maxTransactionsToBeCreated; counter++) {
-      const user = UserFactory.create();
-      const userCreated = await userRepository.create(user);
+      for (let counter = 0; counter < maxTransactionsToBeCreated; counter++) {
+        const user = UserFactory.create();
+        const userCreated = await userRepository.create(user);
 
-      await transactionRepository.create(TransactionFactory.create(), userCreated.id);
-    }
+        await transactionRepository.create(TransactionFactory.create(), userCreated.id);
+      }
 
-    const events = new EventEmitter();
-    events.on("getTransactionsSuccessfullyEvent", getTransactionsSuccessfullyEvent);
+      const events = new EventEmitter();
+      events.on("getTransactionsSuccessfullyEvent", getTransactionsSuccessfullyEvent);
 
-    // when
-    const command = createCommand(events, transactionRepository);
-    await command.execute();
+      // when
+      const command = createCommand(events, transactionRepository);
+      await command.execute();
 
-    // then
-    expect(eventEmittedData!.length).to.be.equal(expectedTransactionsLength);
+      // then
+      expect(eventEmittedData!.length).to.be.equal(expectedTransactionsLength);
+    });
   });
 });

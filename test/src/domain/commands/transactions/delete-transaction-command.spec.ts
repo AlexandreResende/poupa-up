@@ -16,52 +16,54 @@ const createCommand = (
     return new DeleteTransactionCommand(events, transactionRepository);
   };
 
-describe("DeleteTransactionCommand", () => {
-  const transactionRepository = new TransactionInMemoryRepository();
-  const userRepository = new UserInMemoryRepository();
+describe("Unit", () => {
+  describe("DeleteTransactionCommand", () => {
+    const transactionRepository = new TransactionInMemoryRepository();
+    const userRepository = new UserInMemoryRepository();
 
-  it("deletes the specified record when its id is passed", async () => {
-    // given
-    let eventDataEmitted: { removed: number };
+    it("deletes the specified record when its id is passed", async () => {
+      // given
+      let eventDataEmitted: { removed: number };
 
-    const user = UserFactory.create();
-    const userCreated = await userRepository.create(user);
+      const user = UserFactory.create();
+      const userCreated = await userRepository.create(user);
 
-    const transaction = TransactionFactory.create();
-    const transactionCreated = await transactionRepository.create(transaction, userCreated.id);
-    const transactionId = transactionCreated.id;
-    const transactionRemovedSuccessfully = (data: { removed: number }) => {
-      eventDataEmitted = data;
-    };
-    const expectedRemovedTransactions = 1;
+      const transaction = TransactionFactory.create();
+      const transactionCreated = await transactionRepository.create(transaction, userCreated.id);
+      const transactionId = transactionCreated.id;
+      const transactionRemovedSuccessfully = (data: { removed: number }) => {
+        eventDataEmitted = data;
+      };
+      const expectedRemovedTransactions = 1;
 
-    const events = new EventEmitter();
-    events.on("transactionRemovedSuccessfullyEvent", transactionRemovedSuccessfully);
+      const events = new EventEmitter();
+      events.on("transactionRemovedSuccessfullyEvent", transactionRemovedSuccessfully);
 
-    // when
-    const command = createCommand(events, transactionRepository);
-    await command.execute({ id: transactionId });
+      // when
+      const command = createCommand(events, transactionRepository);
+      await command.execute({ id: transactionId });
 
-    // then
-    expect(eventDataEmitted!.removed).to.be.equal(expectedRemovedTransactions);
-  });
+      // then
+      expect(eventDataEmitted!.removed).to.be.equal(expectedRemovedTransactions);
+    });
 
-  it("returns removed equals zero when no transaction was found for the given id", async () => {
-    // given
-    let eventDataEmitted: { removed: number };
-    const removedTransactions = 0;
-    const transactionRemovedSuccessfully = (data: { removed: number }) => {
-      eventDataEmitted = data;
-    }
+    it("returns removed equals zero when no transaction was found for the given id", async () => {
+      // given
+      let eventDataEmitted: { removed: number };
+      const removedTransactions = 0;
+      const transactionRemovedSuccessfully = (data: { removed: number }) => {
+        eventDataEmitted = data;
+      }
 
-    const events = new EventEmitter();
-    events.on("transactionRemovedSuccessfullyEvent", transactionRemovedSuccessfully);
+      const events = new EventEmitter();
+      events.on("transactionRemovedSuccessfullyEvent", transactionRemovedSuccessfully);
 
-    // when
-    const command = createCommand(events, transactionRepository);
-    await command.execute({ id: v4() });
+      // when
+      const command = createCommand(events, transactionRepository);
+      await command.execute({ id: v4() });
 
-    // then
-    expect(eventDataEmitted!.removed).to.be.equal(removedTransactions);
+      // then
+      expect(eventDataEmitted!.removed).to.be.equal(removedTransactions);
+    });
   });
 });

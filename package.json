@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "tsc && nodemon index.ts",
-    "test": "nyc mocha -r ts-node/register ./test/**/**.ts"
+    "test": "nyc mocha -r ts-node/register ./test/**/**.ts --exit"
   },
   "dependencies": {
     "@types/body-parser": "^1.17.0",
