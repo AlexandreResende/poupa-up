@@ -4,7 +4,7 @@ import { EventEmitter } from "events";
 
 const { expect } = require("chai");
 
-describe.only("GetTransactionsCommandFactory", () => {
+describe("GetTransactionsCommandFactory", () => {
   it("return an instance of GetTransactionsCommand when called", () => {
     // given
     const commandName = "getTransactionsCommand";
