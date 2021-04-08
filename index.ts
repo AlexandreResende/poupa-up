@@ -2,7 +2,7 @@ require('module-alias/register');
 import express, { Application } from "express";
 import * as bodyParser from "body-parser";
 import { Routes } from "./src/application/controllers";
-import { sequelize } from "./src/database-config";
+// import { sequelize } from "./src/database-config";
 
 const PORT = 7777;
 const app: Application = express();
