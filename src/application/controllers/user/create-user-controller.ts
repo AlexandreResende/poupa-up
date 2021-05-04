@@ -24,9 +24,13 @@ export class CreateUserController {
     const userRegistered = (data: UserInterface) => {
       return HttpResponseHandler.sendSuccess(res, data);
     };
+    const emailAlreadyUsed = (data: { email: string}) => {
+      return HttpResponseHandler.sendForbidden(res, data);
+    }
 
     const events = new EventEmitter();
     events.on("userRegisteredEvent", userRegistered);
+    events.on("emailAlreadyUsedEvent", emailAlreadyUsed);
 
     const command = Container.resolve("createUserCommand", events);
 

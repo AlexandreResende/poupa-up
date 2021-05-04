@@ -1,3 +1,3 @@
 export interface BaseCommandInterface {
-  execute(params?: object, userId?: string): Promise<void>;
+  execute(params?: object, userId?: string): Promise<void | boolean>;
 }

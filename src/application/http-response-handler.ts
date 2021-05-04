@@ -1,4 +1,5 @@
 import { Response } from "express";
+import { STATUS_CODES } from "http";
 import { StatusCodes } from "./http-status-code";
 
 export class HttpResponseHandler {
@@ -12,11 +13,15 @@ export class HttpResponseHandler {
     response.status(StatusCodes.OK).send(data);
   }
 
-  public static sendBadRequest(response: Response, data: object) {
+  public static sendForbidden(response: Response, data: object): void {
+    response.status(StatusCodes.FORBIDDEN).send(data);
+  }
+
+  public static sendBadRequest(response: Response, data: object): void {
     response.status(StatusCodes.BAD_REQUEST).send(data);
   }
 
-  public static sendNotFound(response: Response, data: object) {
+  public static sendNotFound(response: Response, data: object): void {
     response.status(StatusCodes.NOT_FOUND).send(data);
   }
 

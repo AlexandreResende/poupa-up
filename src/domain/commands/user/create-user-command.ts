@@ -8,7 +8,13 @@ export default class CreateUserCommand {
     private readonly userRepository: UserRepositoryInterface
   ) {}
 
-  async execute(user: UserInterface) {
+  async execute(user: UserInterface): Promise<void | boolean> {
+    const userRecord = await this.userRepository.findByEmail(user.email);
+
+    if (!userRecord) {
+      return this.events.emit("emailAlreadyUsedEvent", { email: user.email });
+    }
+
     const userCreated = await this.userRepository.create(user);
 
     this.events.emit("userRegisteredEvent", userCreated);
