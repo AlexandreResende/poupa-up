@@ -10,7 +10,7 @@ import { CreateUserCommandFactory } from "@src/application/containers/user/creat
 import { LoginUserCommandFactory } from "@src/application/containers/user/login-user-command-factory";
 
 export default class Container {
-  private static readonly commandFactories: { [key: string]: CommandFactoryInterface } = {
+  private static readonly commandFactories:  Record<string, CommandFactoryInterface> = {
     ["createTransactionCommand"]: new CreateTransactionCommandFactory(),
     ["deleteTransactionCommand"]: new DeleteTransactionCommandFactory(),
     ["getTransactionsCommand"]: new GetTransactionsCommandFactory(),
